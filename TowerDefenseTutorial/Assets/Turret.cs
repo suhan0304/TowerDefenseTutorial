@@ -9,6 +9,8 @@ public class Turret : MonoBehaviour
 
     public string enemyTag = "Enemy";
 
+    public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,8 +51,19 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null) //타겟이 없으면 리턴
+        if (target == null) //타겟이 없으면 리턴 (아무런 행동도 하지 않음)
             return;
+
+        //--- 만약 target이 있다면 ---
+        Vector3 dir = target.position - transform.position; //목표 방향 = 타겟 위치 - 내 위치
+        Quaternion lookRotation = Quaternion.LookRotation(dir); //dir 방향을 보도록 회전하는 정도
+
+        //유니티는 x, y, z를 오일러 각도를 기준으로 사용하고 있다. 
+        Vector3 rotation = lookRotation.eulerAngles; //따라서 우리가 원하는 회전을 오일러 각도로 변환해준다.
+
+        //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
+        
     }
 
     private void OnDrawGizmosSelected() //기즈모를 그려주는 유니티 함수
