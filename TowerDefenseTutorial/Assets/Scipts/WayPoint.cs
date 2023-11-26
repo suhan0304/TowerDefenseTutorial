@@ -8,10 +8,10 @@ public class WayPoints : MonoBehaviour
 
     void Awake()
     {
-        points = new Transform[transform.childCount]; //wayPoint °¹¼ö¸¸Å­ ¹è¿­ ÃÊ±âÈ­
+        points = new Transform[transform.childCount];//wayPoint ê°¯ìˆ˜ë§Œí¼ ë°°ì—´ ì´ˆê¸°í™”
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = transform.GetChild(i); //transformÀÇ °¹¼ö¸¸Å­ ÀÚ³à¸¦ °¡Á®¿Í points ¹è¿­¿¡ ÇÒ´ç½ÃÄÑÁØ´Ù.
+            points[i] = transform.GetChild(i); //transformì˜ ê°¯ìˆ˜ë§Œí¼ ìë…€ë¥¼ ê°€ì ¸ì™€ points ë°°ì—´ì— í• ë‹¹ì‹œì¼œì¤€ë‹¤.
         }
     }
 }
