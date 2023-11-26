@@ -2,44 +2,44 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f; //¼Óµµ
+    public float speed = 10f; //ì†ë„
 
-    private Transform target; //¸ñÇ¥ ¹æÇâ
-    private int wavepointIndex = 0;//ÇöÀç ¸ñÇ¥·ÎÇÏ´Â ¿şÀÌÆ÷ÀÎÆ® ÀÎµ¦½º
+    private Transform target; //ëª©í‘œ ë°©í–¥
+    private int wavepointIndex = 0;//í˜„ì¬ ëª©í‘œë¡œí•˜ëŠ” ì›¨ì´í¬ì¸íŠ¸ ì¸ë±ìŠ¤
 
     private void Start()
     {
-        //WayPointsÀÇ points¸¦ staticÀ¸·Î ¼±¾ğÇØ³ù±â ¶§¹®¿¡ ¹Ù·Î ºÒ·¯¿Ã ¼ö ÀÖ´Ù.
-        //points¸¦ ½Ì±ÛÅæ µğÀÚÀÎ ÆĞÅÏÀ¸·Î »ç¿ëÇÏ´Â ¸ğ½À
+        //WayPointsì˜ pointsë¥¼ staticìœ¼ë¡œ ì„ ì–¸í•´ë†¨ê¸° ë•Œë¬¸ì— ë°”ë¡œ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆë‹¤.
+        //pointsë¥¼ ì‹±ê¸€í†¤ ë””ìì¸ íŒ¨í„´ìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” ëª¨ìŠµ
         target = WayPoints.points[0]; 
     }
 
     void Update()
     {
-        //ÀÌµ¿ÇØ¾ß ÇÒ ¹æÇâ ( ¸ñÇ¥ À§Ä¡ - ³» À§Ä¡  )
+        //ì´ë™í•´ì•¼ í•  ë°©í–¥ ( ëª©í‘œ ìœ„ì¹˜ - ë‚´ ìœ„ì¹˜  )
         Vector3 dir = target.position - transform.position;
 
-        //¹æÇâ º¤ÅÍ·Î ½ºÇÇµå ¸¸Å­ ÀÌµ¿
-        //¹æÇâÀ» ´ÜÀ§º¤ÅÍ·Î ¹Ù²Ù±â À§ÇØ normalized ÁøÇà ÈÄ speed¸¦ °öÇÑ¸¸Å­ ÁøÇà (ÇÁ·¹ÀÓ-½Ã°£ º¸Á¤À¸·Î deltaTimeÀ» »ç¿ë)
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World); //World Space¿¡¼­ ÀÌµ¿
+        //ë°©í–¥ ë²¡í„°ë¡œ ìŠ¤í”¼ë“œ ë§Œí¼ ì´ë™
+        //ë°©í–¥ì„ ë‹¨ìœ„ë²¡í„°ë¡œ ë°”ê¾¸ê¸° ìœ„í•´ normalized ì§„í–‰ í›„ speedë¥¼ ê³±í•œë§Œí¼ ì§„í–‰ (í”„ë ˆì„-ì‹œê°„ ë³´ì •ìœ¼ë¡œ deltaTimeì„ ì‚¬ìš©)
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World); //World Spaceì—ì„œ ì´ë™
 
 
-        //¿şÀÌÆ÷ÀÎÆ® µµÂø ½Ã ´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ®·Î º¯°æ
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f) // ¿şÀÌ Æ÷ÀÎÆ®¿Í ¿¡³Ê¹ÌÀÇ °Å¸®°¡ 0.4 ÀÌÇÏ¸é ´ÙÀ½ ¿şÀÌ Æ÷ÀÎÆ®·Î
+        //ì›¨ì´í¬ì¸íŠ¸ ë„ì°© ì‹œ ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ë¡œ ë³€ê²½
+        if (Vector3.Distance(transform.position, target.position) <= 0.4f) // ì›¨ì´ í¬ì¸íŠ¸ì™€ ì—ë„ˆë¯¸ì˜ ê±°ë¦¬ê°€ 0.4 ì´í•˜ë©´ ë‹¤ìŒ ì›¨ì´ í¬ì¸íŠ¸ë¡œ
         {
-            GetNextWayPoint(); //´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ®¸¦ Å¸°ÙÀ¸·Î º¯°æ
+            GetNextWayPoint(); //ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ë¥¼ íƒ€ê²Ÿìœ¼ë¡œ ë³€ê²½
         } 
     }
 
     void GetNextWayPoint()
     {
-        if (wavepointIndex >= WayPoints.points.Length - 1) //¸¸¾à °¡Áö°í ÀÖ´Â ¸ğµç ¿şÀÌÆ÷ÀÎÆ®¸¦ ¹æ¹® > µµÂø ÁöÁ¡ µµ´Ş
+        if (wavepointIndex >= WayPoints.points.Length - 1) //ë§Œì•½ ê°€ì§€ê³  ìˆëŠ” ëª¨ë“  ì›¨ì´í¬ì¸íŠ¸ë¥¼ ë°©ë¬¸ > ë„ì°© ì§€ì  ë„ë‹¬
         {
-            Destroy(gameObject); //µµÂøÁöÁ¡ µµÂø ½Ã ¿ÀºêÁ§Æ® ÆÄ±«
-            return; //¾Æ·¡ÀÇ ´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ® °¡Á®¿À´Â °ÍÀ» ÇÏÁö ¾Ê°í ¹Ù·Î Á¾·á
+            Destroy(gameObject); //ë„ì°©ì§€ì  ë„ì°© ì‹œ ì˜¤ë¸Œì íŠ¸ íŒŒê´´
+            return; //ì•„ë˜ì˜ ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ ê°€ì ¸ì˜¤ëŠ” ê²ƒì„ í•˜ì§€ ì•Šê³  ë°”ë¡œ ì¢…ë£Œ
         }
 
-        wavepointIndex++; //´ÙÀ½ ¿şÀÌÆ÷ÀÎÆ® ÀÎµ¦½º
-        target = WayPoints.points[wavepointIndex]; //´ÙÀ½ ÀÎµ¦½ºÀÇ ¿şÀÌÆ÷ÀÎÆ® ¿ÀºêÁ§Æ®¸¦ ¹Ş¾Æ¿Â´Ù.
+        wavepointIndex++; //ë‹¤ìŒ ì›¨ì´í¬ì¸íŠ¸ ì¸ë±ìŠ¤
+        target = WayPoints.points[wavepointIndex]; //ë‹¤ìŒ ì¸ë±ìŠ¤ì˜ ì›¨ì´í¬ì¸íŠ¸ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°›ì•„ì˜¨ë‹¤.
     }
 }

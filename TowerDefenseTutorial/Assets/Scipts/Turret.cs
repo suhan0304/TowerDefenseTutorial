@@ -4,75 +4,75 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public Transform target; // °ø°İÇÒ¸ñÇ¥ ¿ÀºêÁ§Æ®
-    public float range = 15f; // »ç°Å¸®´Â 15·Î ¼³Á¤
+    public Transform target; // ê³µê²©í• ëª©í‘œ ì˜¤ë¸Œì íŠ¸
+    public float range = 15f; // ì‚¬ê±°ë¦¬ëŠ” 15ë¡œ ì„¤ì •
 
     public string enemyTag = "Enemy";
 
-    public Transform partToRotate; //½ÇÁ¦·Î base¸¦ Á¦¿ÜÇÏ°í È¸ÀüµÉ ¿ÀºêÁ§Æ®ÀÇ Æ®·£½ºÆû
+    public Transform partToRotate; //ì‹¤ì œë¡œ baseë¥¼ ì œì™¸í•˜ê³  íšŒì „ë  ì˜¤ë¸Œì íŠ¸ì˜ íŠ¸ëœìŠ¤í¼
     public float turnSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f); //0f¿¡ ½ÃÀÛÇØ¼­ 0.5f¸¶´Ù ¹İº¹È£Ãâ
+        InvokeRepeating("UpdateTarget", 0f, 0.5f); //0fì— ì‹œì‘í•´ì„œ 0.5fë§ˆë‹¤ ë°˜ë³µí˜¸ì¶œ
     }
 
-    void UpdateTarget() //°¡Àå °¡±î¿î ÀûÀ» Ã£¾Æ ¸ñÇ¥·Î ¾÷µ¥ÀÌÆ®
+    void UpdateTarget() //ê°€ì¥ ê°€ê¹Œìš´ ì ì„ ì°¾ì•„ ëª©í‘œë¡œ ì—…ë°ì´íŠ¸
     {
-        //¸Å ÇÁ·¹ÀÓ¸¶´Ù ¸ğµç ÀûÀ» È®ÀÎÇÏ¸é¼­ ¾÷µ¥ÀÌÆ®ÇÏ¸é ¼º´É ½Ã°£ ³¶ºñ
-        //"1ÃÊ¿¡ 2¹ø"°ú °°ÀÌ °Ë»ö È½¼ö¸¦ Á¦ÇÑ, Å¸°ÙÀ» °¡Áö°í ÀÖÁö ¾ÊÀº °æ¿ì¿¡¸¸ Å½»öÇÏ´Â µîÀÇ ¹æ¹ıÀÌ °¡´É
-        //0.5ÃÊ¿¡ ÇÑ¹ø ½ÇÇà µÇµµ·Ï start¿¡ InvokeRepeatingÀ» ½ÇÇà
+        //ë§¤ í”„ë ˆì„ë§ˆë‹¤ ëª¨ë“  ì ì„ í™•ì¸í•˜ë©´ì„œ ì—…ë°ì´íŠ¸í•˜ë©´ ì„±ëŠ¥ ì‹œê°„ ë‚­ë¹„
+        //"1ì´ˆì— 2ë²ˆ"ê³¼ ê°™ì´ ê²€ìƒ‰ íšŸìˆ˜ë¥¼ ì œí•œ, íƒ€ê²Ÿì„ ê°€ì§€ê³  ìˆì§€ ì•Šì€ ê²½ìš°ì—ë§Œ íƒìƒ‰í•˜ëŠ” ë“±ì˜ ë°©ë²•ì´ ê°€ëŠ¥
+        //0.5ì´ˆì— í•œë²ˆ ì‹¤í–‰ ë˜ë„ë¡ startì— InvokeRepeatingì„ ì‹¤í–‰
 
-        GameObject[] enenmies = GameObject.FindGameObjectsWithTag(enemyTag); //ÅÂ±×¿¡ enemyTagÀÎ ¿ÀºêÁ§Æ®¸¦ ¸ğµÎ Å½»ö
-        float shortestDistance = Mathf.Infinity; //ÃÖ¼Ò°Å¸®¸¦ ±¸ÇÏ±â À§ÇÑ ÃÊ±â°ªÀ» Infinity·Î ¼³Á¤
+        GameObject[] enenmies = GameObject.FindGameObjectsWithTag(enemyTag); //íƒœê·¸ì— enemyTagì¸ ì˜¤ë¸Œì íŠ¸ë¥¼ ëª¨ë‘ íƒìƒ‰
+        float shortestDistance = Mathf.Infinity; //ìµœì†Œê±°ë¦¬ë¥¼ êµ¬í•˜ê¸° ìœ„í•œ ì´ˆê¸°ê°’ì„ Infinityë¡œ ì„¤ì •
         GameObject nearestEnemy = null;
 
         foreach(GameObject enemy in enenmies)
         {
-            //Àû°ú ³» °Å¸®¸¦ ±¸ÇÔ
+            //ì ê³¼ ë‚´ ê±°ë¦¬ë¥¼ êµ¬í•¨
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if(distanceToEnemy < shortestDistance) // ´õ °¡±î¿î ÀûÀ» Ã£¾Ò´Ù¸é nearestEnemy¸¦ ÃÖ´Ü °Å¸® ¾÷µ¥ÀÌÆ® ÈÄ ÇØ´ç ¿ÀºêÁ§Æ®·Î ¼³Á¤  
+            if(distanceToEnemy < shortestDistance) // ë” ê°€ê¹Œìš´ ì ì„ ì°¾ì•˜ë‹¤ë©´ nearestEnemyë¥¼ ìµœë‹¨ ê±°ë¦¬ ì—…ë°ì´íŠ¸ í›„ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ë¡œ ì„¤ì •  
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;               
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range) //ÀûÀ» Ã£¾Ò°í + »ç°Å¸® ¾È¿¡ µé¾î¿Ô´Ù¸é
+        if (nearestEnemy != null && shortestDistance <= range) //ì ì„ ì°¾ì•˜ê³  + ì‚¬ê±°ë¦¬ ì•ˆì— ë“¤ì–´ì™”ë‹¤ë©´
         {
-            target = nearestEnemy.transform;    //ÀÌÁ¦ ¸ñÇ¥ ¿ÀºêÁ§Æ®¸¦ ¹Ì¸® Ã£¾Æ³õÀº ÀûÀ¸·Î ¼³Á¤
+            target = nearestEnemy.transform;    //ì´ì œ ëª©í‘œ ì˜¤ë¸Œì íŠ¸ë¥¼ ë¯¸ë¦¬ ì°¾ì•„ë†“ì€ ì ìœ¼ë¡œ ì„¤ì •
         }
         else
         {
-            target = null; //¸¸Á·ÇÏÁö ¾ÊÀ¸¸é targetÀ» null·Î ÃÊ±âÈ­
+            target = null; //ë§Œì¡±í•˜ì§€ ì•Šìœ¼ë©´ targetì„ nullë¡œ ì´ˆê¸°í™”
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null) //Å¸°ÙÀÌ ¾øÀ¸¸é ¸®ÅÏ (¾Æ¹«·± Çàµ¿µµ ÇÏÁö ¾ÊÀ½)
+        if (target == null) //íƒ€ê²Ÿì´ ì—†ìœ¼ë©´ ë¦¬í„´ (ì•„ë¬´ëŸ° í–‰ë™ë„ í•˜ì§€ ì•ŠìŒ)
             return;
 
-        //--- ¸¸¾à targetÀÌ ÀÖ´Ù¸é ---
-        Vector3 dir = target.position - transform.position; //¸ñÇ¥ ¹æÇâ = Å¸°Ù À§Ä¡ - ³» À§Ä¡
-        Quaternion lookRotation = Quaternion.LookRotation(dir); //dir ¹æÇâÀ» º¸µµ·Ï È¸ÀüÇÏ´Â Á¤µµ
+        //--- ë§Œì•½ targetì´ ìˆë‹¤ë©´ ---
+        Vector3 dir = target.position - transform.position; //ëª©í‘œ ë°©í–¥ = íƒ€ê²Ÿ ìœ„ì¹˜ - ë‚´ ìœ„ì¹˜
+        Quaternion lookRotation = Quaternion.LookRotation(dir); //dir ë°©í–¥ì„ ë³´ë„ë¡ íšŒì „í•˜ëŠ” ì •ë„
 
-        //À¯´ÏÆ¼´Â x, y, z¸¦ ¿ÀÀÏ·¯ °¢µµ¸¦ ±âÁØÀ¸·Î »ç¿ëÇÏ°í ÀÖ´Ù. 
-        //Vector3 rotation = lookRotation.eulerAngles; //µû¶ó¼­ ¿ì¸®°¡ ¿øÇÏ´ÂÈ¸ÀüÀ» ¿ÀÀÏ·¯ °¢µµ·Î º¯È¯ÇØÁØ´Ù.
-        //À­ÁÙ ÄÚµå¸¦ ¾Æ·¡ÀÇ ºÎµå·´°Ô È¸ÀüÇÏ´Â ÄÚµå·Î ¼öÁ¤
+        //ìœ ë‹ˆí‹°ëŠ” x, y, zë¥¼ ì˜¤ì¼ëŸ¬ ê°ë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì‚¬ìš©í•˜ê³  ìˆë‹¤. 
+        //Vector3 rotation = lookRotation.eulerAngles; //ë”°ë¼ì„œ ìš°ë¦¬ê°€ ì›í•˜ëŠ”íšŒì „ì„ ì˜¤ì¼ëŸ¬ ê°ë„ë¡œ ë³€í™˜í•´ì¤€ë‹¤.
+        //ìœ—ì¤„ ì½”ë“œë¥¼ ì•„ë˜ì˜ ë¶€ë“œëŸ½ê²Œ íšŒì „í•˜ëŠ” ì½”ë“œë¡œ ìˆ˜ì •
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        //partToRateÀÇ È¸Àü¿¡¼­ lookRotationÀÇ È¸Àü±îÁö turnSpeed ´ÜÀ§·Î º¯°æµÇ¸é¼­ È¸ÀüÀ» ³»º¸³»¸é ÇØ´ç È¸ÀüÀ» ¿ÀÀÏ·¯ °¢µµ·Î º¯È¯ÇØ¼­ rotation Vector¿¡ ÀúÀåÇÔ.
+        //partToRateì˜ íšŒì „ì—ì„œ lookRotationì˜ íšŒì „ê¹Œì§€ turnSpeed ë‹¨ìœ„ë¡œ ë³€ê²½ë˜ë©´ì„œ íšŒì „ì„ ë‚´ë³´ë‚´ë©´ í•´ë‹¹ íšŒì „ì„ ì˜¤ì¼ëŸ¬ ê°ë„ë¡œ ë³€í™˜í•´ì„œ rotation Vectorì— ì €ì¥í•¨.
 
-        //yÃàÀ» Áß½ÉÀ¸·Î¸¸ È¸ÀüÇÏ±â¸¦ ¿øÇÏ±â ¶§¹®¿¡ yÈ¸Àü Á¤µµ¸¸ ºÒ·¯¿Í¼­ »ç¿ëÇÑ´Ù.
+        //yì¶•ì„ ì¤‘ì‹¬ìœ¼ë¡œë§Œ íšŒì „í•˜ê¸°ë¥¼ ì›í•˜ê¸° ë•Œë¬¸ì— yíšŒì „ ì •ë„ë§Œ ë¶ˆëŸ¬ì™€ì„œ ì‚¬ìš©í•œë‹¤.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
         
     }
 
-    private void OnDrawGizmosSelected() //±âÁî¸ğ¸¦ ±×·ÁÁÖ´Â À¯´ÏÆ¼ ÇÔ¼ö
+    private void OnDrawGizmosSelected() //ê¸°ì¦ˆëª¨ë¥¼ ê·¸ë ¤ì£¼ëŠ” ìœ ë‹ˆí‹° í•¨ìˆ˜
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range); //³» À§Ä¡¸¦ ±âÁØÀ¸·Î range¸¦ ¹İÁö¸§À» ±¸¸¦ ±×·ÁÁÜ
+        Gizmos.DrawWireSphere(transform.position, range); //ë‚´ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ rangeë¥¼ ë°˜ì§€ë¦„ì„ êµ¬ë¥¼ ê·¸ë ¤ì¤Œ
     }
 }

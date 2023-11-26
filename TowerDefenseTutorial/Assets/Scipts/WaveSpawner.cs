@@ -7,34 +7,35 @@ public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
 
-    public Transform spawnPoint; //¸ó½ºÅÍ ½ºÆù À§Ä¡
+    public Transform spawnPoint; //ëª¬ìŠ¤í„° ìŠ¤í° ìœ„ì¹˜
 
-    public float timeBetweenWaves = 5.5f; //¿şÀÌºê »çÀÌ ´ë±â ½Ã°£
+    public float timeBetweenWaves = 5.5f; //ì›¨ì´ë¸Œ ì‚¬ì´ ëŒ€ê¸° ì‹œê°„
     private float countdown = 2f;
     
     public Text waveCountdownText;
 
-    private int waveIndex = 0;// ¿şÀÌºê ¹øÈ£
+    private int waveIndex = 0; // ì›¨ì´ë¸Œ ë²ˆí˜¸
 
     private void Update()
     {
-        if (countdown <= 0f) //Ä«¿îÆ®´Ù¿îÀÌ 0 º¸´Ù ÀÛ¾ÆÁöÃ Spawn Wave ½ÇÇà
+        if (countdown <= 0f) //ì¹´ìš´íŠ¸ë‹¤ìš´ì´ 0 ë³´ë‹¤ ì‘ì•„ì§€ë¨„ Spawn Wave ì‹¤í–‰
         {
+        
             StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;//Ä«¿îÆ® ´Ù¿îÀ» Áß°£ ½Ã°£À¸·Î ÃÊ±âÈ­
+            countdown = timeBetweenWaves; //ì¹´ìš´íŠ¸ ë‹¤ìš´ì„ ì¤‘ê°„ ì‹œê°„ìœ¼ë¡œ ì´ˆê¸°í™”
         }
 
-        //deltaTime//¸¶Áö¸· ÇÁ·¹ÀÓÀ» ±×¸° ÈÄ °æ°úÇÑ ½Ã°£
-        countdown -= Time.deltaTime; //½Ã°£À» °è¼Ó ÁÙÀÎ´Ù.
+        //deltaTime//ë§ˆì§€ë§‰ í”„ë ˆì„ì„ ê·¸ë¦° í›„ ê²½ê³¼í•œ ì‹œê°„
+        countdown -= Time.deltaTime; //ì‹œê°„ì„ ê³„ì† ì¤„ì¸ë‹¤.
 
         waveCountdownText.text = Mathf.Round(countdown).ToString();
     }
 
-    IEnumerator SpawnWave() //ÄÚ·çÆ¾
+    IEnumerator SpawnWave() //ì½”ë£¨í‹´
     {
-        waveIndex++; //¿şÀÌºê°¡ ¿Ã¶§¸¶´Ù ·¹º§¾÷
-        
-        for (int i = 0; i < waveIndex; i++) //¿şÀÌºê ·¹º§¸¸Å­ ¸ó½ºÅÍ ¼ÒÇÑ
+        waveIndex++;//ì›¨ì´ë¸Œê°€ ì˜¬ë•Œë§ˆë‹¤ ë ˆë²¨ì—…
+
+        for (int i = 0; i < waveIndex; i++)  //ì›¨ì´ë¸Œ ë ˆë²¨ë§Œí¼ ëª¬ìŠ¤í„° ì†Œí•œ
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
@@ -43,7 +44,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        //¹Ì¸® ÁöÁ¤ÇØµĞ ½ºÆù Æ÷ÀÎÆ®¿¡¼­ ¸ó½ºÅÍ¸¦ º¹»çÇØ¼­ ¼ÒÈ¯
+        //ë¯¸ë¦¬ ì§€ì •í•´ë‘” ìŠ¤í° í¬ì¸íŠ¸ì—ì„œ ëª¬ìŠ¤í„°ë¥¼ ë³µì‚¬í•´ì„œ ì†Œí™˜
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
