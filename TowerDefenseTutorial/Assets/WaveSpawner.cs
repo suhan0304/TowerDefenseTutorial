@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform ememyPrefab;
-    public float timeBetweenWaves = 5f;
+    public Transform enemyPrefab;
+
+    public Transform spawnPoint; //몬스터 스폰 위치
+
+    public float timeBetweenWaves = 5f; //웨이브 사이 대기 시간
     private float countdown = 2f;
+
+    private int waveNumber = 1;// 웨이브 번호
 
     private void Update()
     {
@@ -22,6 +27,16 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        Debug.Log("Wave Incoming!");
+        for (int i = 0; i < waveNumber; i++) //웨이브 레벨만큼 몬스터 소한
+        {
+            SpawnEnemy();
+        }
+        waveNumber++; //웨이브가 올때마다 레벨업
+    }
+
+    void SpawnEnemy()
+    {
+        //미리 지정해둔 스폰 포인트에서 몬스터를 복사해서 소환
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
