@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
 
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
+    public float turnSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,10 @@ public class Turret : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir); //dir 방향을 보도록 회전하는 정도
 
         //유니티는 x, y, z를 오일러 각도를 기준으로 사용하고 있다. 
-        Vector3 rotation = lookRotation.eulerAngles; //따라서 우리가 원하는 회전을 오일러 각도로 변환해준다.
+        //Vector3 rotation = lookRotation.eulerAngles; //따라서 우리가 원하는회전을 오일러 각도로 변환해준다.
+        //윗줄 코드를 아래의 부드럽게 회전하는 코드로 수정
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        //partToRate의 회전에서 lookRotation의 회전까지 turnSpeed 단위로 변경되면서 회전을 내보내면 해당 회전을 오일러 각도로 변환해서 rotation Vector에 저장함.
 
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 

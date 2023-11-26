@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5.5f; //웨이브 사이 대기 시간
     private float countdown = 2f;
-
+    
     public Text waveCountdownText;
 
     private int waveIndex = 0;// 웨이브 번호
@@ -27,13 +27,13 @@ public class WaveSpawner : MonoBehaviour
         //deltaTime//마지막 프레임을 그린 후 경과한 시간
         countdown -= Time.deltaTime; //시간을 계속 줄인다.
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString(); //카운트 다운을 반올림한 다음 스트링으로 바꿔서 UI의 텍스트에 설정
+        waveCountdownText.text = Mathf.Round(countdown).ToString();
     }
 
     IEnumerator SpawnWave() //코루틴
     {
         waveIndex++; //웨이브가 올때마다 레벨업
-
+        
         for (int i = 0; i < waveIndex; i++) //웨이브 레벨만큼 몬스터 소한
         {
             SpawnEnemy();
