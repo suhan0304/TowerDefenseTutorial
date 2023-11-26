@@ -40,6 +40,10 @@ public class Turret : MonoBehaviour
         {
             target = nearestEnemy.transform;    //이제 목표 오브젝트를 미리 찾아놓은 적으로 설정
         }
+        else
+        {
+            target = null; //만족하지 않으면 target을 null로 초기화
+        }
     }
 
     // Update is called once per frame
