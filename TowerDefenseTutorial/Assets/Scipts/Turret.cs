@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
+
+    [Header("Attributes")]
+
     public float range = 15f; // 사거리는 15로 설정
+    public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
+    private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
+
+    [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
 
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
+
+    public GameObject bulletPrefab; //총알 프리팹
+    public Transform firePoint; //총알이 복사되어 생성될 위치
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +34,7 @@ public class Turret : MonoBehaviour
         //매 프레임마다 모든 적을 확인하면서 업데이트하면 성능 시간 낭비
         //"1초에 2번"과 같이 검색 횟수를 제한, 타겟을 가지고 있지 않은 경우에만 탐색하는 등의 방법이 가능
         //0.5초에 한번 실행 되도록 start에 InvokeRepeating을 실행
-
+        
         GameObject[] enenmies = GameObject.FindGameObjectsWithTag(enemyTag); //태그에 enemyTag인 오브젝트를 모두 탐색
         float shortestDistance = Mathf.Infinity; //최소거리를 구하기 위한 초기값을 Infinity로 설정
         GameObject nearestEnemy = null;
@@ -67,8 +78,26 @@ public class Turret : MonoBehaviour
 
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
+
+        if(fireCountdown <= 0f) { //카운트 다운이 0이 되면 shoot 발사
+            Shoot();
+            fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
+        }
+
+        fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
         
     }
+    void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>(); //복사한 bullet 오브젝트에서 bullet 컴포넌트를 가져옴
+
+        if (bullet != null)
+        {
+            bullet.Seek(target); //bullet이 존재한다면 target 오브젝트를 넘겨줌
+        }
+    }
+
 
     private void OnDrawGizmosSelected() //기즈모를 그려주는 유니티 함수
     {
