@@ -75,8 +75,15 @@ public class Turret : MonoBehaviour
             Shoot();
             fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
         }
+
+        fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
         
     }
+    void Shoot()
+    {
+        Debug.Log("SHOOT!");
+    }
+
 
     private void OnDrawGizmosSelected() //기즈모를 그려주는 유니티 함수
     {
