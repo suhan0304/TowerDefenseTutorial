@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -19,6 +20,8 @@ public class Turret : MonoBehaviour
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
 
+    public GameObject bulletPrefab; //총알 프리팹
+    public Transform firePoint; //총알이 복사되어 생성될 위치
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +89,7 @@ public class Turret : MonoBehaviour
     }
     void Shoot()
     {
-        Debug.Log("SHOOT!");
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
 
