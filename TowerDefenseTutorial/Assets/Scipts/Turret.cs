@@ -12,6 +12,9 @@ public class Turret : MonoBehaviour
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
 
+    public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
+    private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class Turret : MonoBehaviour
         //매 프레임마다 모든 적을 확인하면서 업데이트하면 성능 시간 낭비
         //"1초에 2번"과 같이 검색 횟수를 제한, 타겟을 가지고 있지 않은 경우에만 탐색하는 등의 방법이 가능
         //0.5초에 한번 실행 되도록 start에 InvokeRepeating을 실행
-
+        
         GameObject[] enenmies = GameObject.FindGameObjectsWithTag(enemyTag); //태그에 enemyTag인 오브젝트를 모두 탐색
         float shortestDistance = Mathf.Infinity; //최소거리를 구하기 위한 초기값을 Infinity로 설정
         GameObject nearestEnemy = null;
@@ -67,6 +70,11 @@ public class Turret : MonoBehaviour
 
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
+
+        if(fireCountdown <= 0f) { //카운트 다운이 0이 되면 shoot 발사
+            Shoot();
+            fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
+        }
         
     }
 

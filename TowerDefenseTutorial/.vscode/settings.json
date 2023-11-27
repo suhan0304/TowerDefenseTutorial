@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TowerDefenseTutorial.sln"
+    "dotnet.defaultSolution": "TowerDefenseTutorial.sln",
+    "dotnet.preferCSharpExtension": true
 }
