@@ -5,15 +5,20 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
+
+    [Header("Attributes")]
+
     public float range = 15f; // 사거리는 15로 설정
+    public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
+    private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
+
+    [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
 
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
 
-    public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
-    private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
 
     // Start is called before the first frame update
     void Start()
