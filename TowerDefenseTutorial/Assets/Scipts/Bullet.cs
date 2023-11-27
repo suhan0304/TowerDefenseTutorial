@@ -29,11 +29,11 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame * Time.deltaTime);
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World); //총알이 적을 향해 이동
     }
 
     void HitTarget() //총알이 적에 도달했을때
     {
-        Debug.Log("HIT SOMETHIGN!");
+        Debug.Log("HIT SOMETHIGN!"); 
     }
 }
