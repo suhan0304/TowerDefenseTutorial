@@ -35,8 +35,11 @@ public class Bullet : MonoBehaviour
 
     void HitTarget() //총알이 적에 도달했을때
     {
+        //이펙트 생성(실행) 후 다시 제거
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation); //이펙트 생성
         Destroy(effectIns, 2f); //2초후에 이펙트 다시 삭제
-        Destroy(gameObject); 
+
+        Destroy(target.gameObject); //일단 바로 파괴하도록 작성 - 추후 HP 추가 예정
+        Destroy(gameObject);        //충돌 시 총알은 바로 파괴
     }
 }
