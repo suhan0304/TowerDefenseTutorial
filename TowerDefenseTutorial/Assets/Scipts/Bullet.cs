@@ -34,6 +34,6 @@ public class Bullet : MonoBehaviour
 
     void HitTarget() //총알이 적에 도달했을때
     {
-        Debug.Log("HIT SOMETHIGN!"); 
+        Destroy(gameObject); 
     }
 }
