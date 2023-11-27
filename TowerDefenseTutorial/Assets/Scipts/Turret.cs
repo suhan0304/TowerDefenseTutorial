@@ -89,7 +89,13 @@ public class Turret : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>(); //복사한 bullet 오브젝트에서 bullet 컴포넌트를 가져옴
+
+        if (bullet != null)
+        {
+            bullet.Seek(target); //bullet이 존재한다면 target 오브젝트를 넘겨줌
+        }
     }
 
 
