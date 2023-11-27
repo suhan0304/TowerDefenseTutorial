@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     private Transform target; //총알의 목표 오브젝트
 
     public float speed = 70f; //초알의 속도
+    public GameObject impactEffect; //총알 임팩트 효과
 
     public void Seek(Transform _target)
     {
@@ -34,6 +35,8 @@ public class Bullet : MonoBehaviour
 
     void HitTarget() //총알이 적에 도달했을때
     {
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation); //이펙트 생성
+        Destroy(effectIns, 2f); //2초후에 이펙트 다시 삭제
         Destroy(gameObject); 
     }
 }
