@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         } 
         if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness) //a 입력 시 or 마우스가 화면의 왼쪽 (panBorderThickness) 바깥쪽에 있을 때
         {
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World); 
+            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World); 
         }
 
     }
