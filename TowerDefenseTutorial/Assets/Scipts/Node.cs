@@ -24,6 +24,8 @@ public class Node : MonoBehaviour
         }
 
         //Build a turret
+        GameObject turretBuild = BuildManager.instance.GetTurretToBuild(); //싱글톤
+        turret =  (GameObject)Instantiate(turretBuild, transform.position, transform.rotation);
     }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
