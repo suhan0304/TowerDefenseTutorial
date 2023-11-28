@@ -3,6 +3,7 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     public Color hoverColor; //색
+    public Vector3 positionOffset;
 
     private GameObject turret;
 
@@ -24,8 +25,12 @@ public class Node : MonoBehaviour
         }
 
         //Build a turret
-        GameObject turretBuild = BuildManager.instance.GetTurretToBuild(); //싱글톤
-        turret =  (GameObject)Instantiate(turretBuild, transform.position, transform.rotation);
+        GameObject turretBuild = BuildManager.instance.GetTurretToBuild(); //빌드 매니저를 바로 호출 가능(싱그톤)
+        
+        //노드 위치에 건설 시 노드와 동일한 Position에 겹쳐서 생성됨 ( 노드 내부에 터렛이 위치함 )
+        //높이 오프셋을 선언해 준 후 위치 벡터에 더해서 초기 생성 위치를 조정해준다. -> Offset은 노드 프리팹의 인스펙터에서 조정 가능 
+        turret =  (GameObject)Instantiate(turretBuild, transform.position + positionOffset, transform.rotation); //건설할 터렛을 복사 한 후 turret 변수에 초기화
+        
     }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
