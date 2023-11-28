@@ -4,6 +4,8 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor; //색
 
+    private GameObject turret;
+
     private Renderer rend;
     private Color startColor;
 
@@ -11,6 +13,17 @@ public class Node : MonoBehaviour
     {
         rend = GetComponent<Renderer>();//게임이 시작될 때 렌더러를 미리 저장
         startColor = rend.material.color; //시작 색을 저장 후 기억
+    }
+
+    private void OnMouseDown()
+    {
+        if(turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습
+        {
+            Debug.Log("Can't build there! - TODO : Display on screen.");
+            return;
+        }
+
+        //Build a turret
     }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
