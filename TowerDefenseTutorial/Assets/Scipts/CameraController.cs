@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private bool doMovement = true;
+
     public float panSpeed = 30f; //평면으로 카메라가 움직이는 속도
     public float panBorderThickness = 10; //화면을 움직일 마우스 테두리 위치 굵기
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) //ESC 키를 눌러 doMovement를 부울을 변경할 수 있다.
+            doMovement = !doMovement;   
+
+        if (!doMovement) //doMovement가 False이면 카메라를 움직이지 않는다.
+            return;
+
         if(Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness) //w 입력 시 or 마우스가 화면의 상단 (y 좌표 - panBorderThickness) 바깥쪽에 있을 때
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World); //앞 방향으로 이동
@@ -24,6 +32,5 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World); 
         }
-
     }
 }
