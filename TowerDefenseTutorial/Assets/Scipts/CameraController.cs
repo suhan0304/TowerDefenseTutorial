@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -8,6 +9,8 @@ public class CameraController : MonoBehaviour
     public float panBorderThickness = 10; //화면을 움직일 마우스 테두리 위치 굵기
     
     public float scrollSpeed = 5f;
+    public float minY = 10f;
+    public float maxY = 80f;
 
     void Update()
     {
@@ -46,6 +49,9 @@ public class CameraController : MonoBehaviour
         Vector3 pos = transform.position;
 
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime; //휠 반환 값 * 속도 * 프레임-시간 보정
+        //스크롤 휠 값은 매우 작기 때문에 1000을 곱해준다.
+
+        pos.y = Mathf.Clamp(pos.y, minY, maxY); //pos.y의 값은 minY와 maxY값 사이로 고정시킨다.
 
         transform.position = pos; //위치 조정
     }
