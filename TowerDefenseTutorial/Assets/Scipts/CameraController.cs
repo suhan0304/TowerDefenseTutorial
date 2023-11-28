@@ -44,8 +44,6 @@ public class CameraController : MonoBehaviour
         //스크롤은 GetKey처럼 누름, 안누름과 같이 2가지 경우가 아니라 속도를 값으로 반환한다. (아래 방향은 음수, 위 방향은 양수)
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        Debug.Log(scroll);
-
         Vector3 pos = transform.position;
 
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime; //휠 반환 값 * 속도 * 프레임-시간 보정
