@@ -8449,7 +8449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82379783167702680, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseAnotherTurret
+      value: PurchaseMissileLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 82379783167702680, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -8463,6 +8463,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6faa4ffeec397c74fa1a573de7decf07, type: 3}
+    - target: {fileID: 4771045839114940681, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771045839114940681, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
+      propertyPath: m_PreferredHeight
+      value: 170
+      objectReference: {fileID: 0}
     - target: {fileID: 5206140325273581760, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Name
       value: MissileLauncherItem
