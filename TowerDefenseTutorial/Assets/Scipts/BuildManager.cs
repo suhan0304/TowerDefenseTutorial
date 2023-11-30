@@ -18,16 +18,17 @@ public class BuildManager : MonoBehaviour
     }
 
     public GameObject standardTurretPrefab; //기본 터렛 프리팹
-
-    private void Start()
-    {
-        turretToBuild = standardTurretPrefab; // 시작한 후의 건설은 일단 기본 터렛이 건설되도록 초기화
-    }
+    public GameObject anotherTurretPrefab; //다른 터렛 프리팹
 
     private GameObject turretToBuild; //노드 선택 시 건설할 터렛
 
     public GameObject GetTurretToBuild() //건설할 터렛을 가져오는 함수
     {
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject turret)//건설할 터렛을 선택
+    {
+        turretToBuild = turret;
     }
 }
