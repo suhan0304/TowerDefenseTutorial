@@ -13,9 +13,9 @@ public class Shop : MonoBehaviour
         Debug.Log("Standard Turret Selected"); //테스트용 출력
         buildManager.SetTurretToBuild(buildManager.standardTurretPrefab); //기본 터렛을 건설하도록 설정
     }
-    public void PurchaseAnotherTurret() //다른 터렛 건설
+    public void PurchaseMissileLauncher() //미사일 런처 건설
     {
-        Debug.Log("Another Turret Selected"); //테스트용 출력
-        buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab); //다른 터렛을 건설하도록 설정
+        Debug.Log("Missile Launcher Selected"); //테스트용 출력
+        buildManager.SetTurretToBuild(buildManager.missileLauncherPrefab); //미사일 런처를 건설하도록 설정
     }
 }
