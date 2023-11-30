@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (buildManager.GetTurretToBuild() == null) //건설할 터렛이 null (건설할 터렛을 선택하지 않으면)
             return;                                  //노드에 마우스가 올라와도 하이라이트 시키지 않고 그냥 return 시킴
 

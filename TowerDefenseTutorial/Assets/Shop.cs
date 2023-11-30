@@ -10,12 +10,12 @@ public class Shop : MonoBehaviour
     }
     public void PurchaseStandardTurret() //기본 터렛 건설
     {
-        Debug.Log("Standard Turret Purchased"); //테스트용 출력
+        Debug.Log("Standard Turret Selected"); //테스트용 출력
         buildManager.SetTurretToBuild(buildManager.standardTurretPrefab); //기본 터렛을 건설하도록 설정
     }
     public void PurchaseAnotherTurret() //다른 터렛 건설
     {
-        Debug.Log("Another Purchased"); //테스트용 출력
+        Debug.Log("Another Turret Selected"); //테스트용 출력
         buildManager.SetTurretToBuild(buildManager.anotherTurretPrefab); //다른 터렛을 건설하도록 설정
     }
 }
