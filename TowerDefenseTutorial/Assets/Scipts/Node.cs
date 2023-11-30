@@ -10,14 +10,21 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColor;
 
+    BuildManager buildManager;
+
     private void Start()
     {
         rend = GetComponent<Renderer>();//게임이 시작될 때 렌더러를 미리 저장
         startColor = rend.material.color; //시작 색을 저장 후 기억
+
+        buildManager = BuildManager.instance;
     }
 
     private void OnMouseDown()
     {
+        if (buildManager.GetTurretToBuild() == null) //건설할 터렛이 null (건설할 터렛을 선택하지 않으면)
+            return;                                  //노드를 클릭해도 터렛을 건설하지 않고 그냥 return 시킴
+
         if(turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습
         {
             Debug.Log("Can't build there! - TODO : Display on screen.");
@@ -34,6 +41,9 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
     {
+        if (buildManager.GetTurretToBuild() == null) //건설할 터렛이 null (건설할 터렛을 선택하지 않으면)
+            return;                                  //노드에 마우스가 올라와도 하이라이트 시키지 않고 그냥 return 시킴
+
         //렌더러를 매번 마우스가 들어갈 때마다 아래와 같이 찾는 것은 성능 낭비 -> 게임 시작에서 한 번만 찾고 저장
         //GetComponent<Renderer>().material.color = hoverColor;
 
