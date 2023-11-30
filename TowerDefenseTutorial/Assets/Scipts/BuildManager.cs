@@ -18,7 +18,7 @@ public class BuildManager : MonoBehaviour
     }
 
     public GameObject standardTurretPrefab; //기본 터렛 프리팹
-    public GameObject anotherTurretPrefab; //다른 터렛 프리팹
+    public GameObject MissileLauncherPrefab; //미사일 런처 프리팹
 
     private GameObject turretToBuild; //노드 선택 시 건설할 터렛
 
