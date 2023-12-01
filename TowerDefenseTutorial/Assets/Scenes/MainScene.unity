@@ -495,6 +495,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3905313855816163298, guid: 88e373e8ec8447644ba7da7bcbda39a0, type: 3}
   m_PrefabInstance: {fileID: 68935250}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &89429132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 89429133}
+  m_Layer: 0
+  m_Name: Missile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &89429133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89429132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8027018, y: 2.233397, z: 5.0417476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5065565713912937672}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &94984611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16048,7 +16080,7 @@ GameObject:
   - component: {fileID: 8346706108145441904}
   - component: {fileID: 6599051175995358701}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16186,13 +16218,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373792927276649232}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.4167973, y: 2.3776317, z: 5.0006127}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 89429133}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &6599051175995358701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16382,4 +16414,4 @@ SceneRoots:
   - {fileID: 221566677}
   - {fileID: 666461306}
   - {fileID: 951853569}
-  - {fileID: 5065565713912937672}
+  - {fileID: 89429133}
