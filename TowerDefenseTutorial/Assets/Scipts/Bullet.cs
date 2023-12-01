@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     private Transform target; //총알의 목표 오브젝트
 
     public float speed = 70f; //초알의 속도
+    public float explosionRadius = 0f; //총알의 폭발 범위
     public GameObject impactEffect; //총알 임팩트 효과
 
     public void Seek(Transform _target)
@@ -40,7 +41,28 @@ public class Bullet : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation); //이펙트 생성
         Destroy(effectIns, 2f); //2초후에 이펙트 다시 삭제
 
+        if (explosionRadius > 0f) //범위 공격
+        {
+            Explode();//폭발 함수
+        }
+        else //단일 타겟
+        {
+            Damage(target);//목표 오브젝트에만 Damage 함수
+        }
+
+
         Destroy(target.gameObject); //일단 바로 파괴하도록 작성 - 추후 HP 추가 예정
         Destroy(gameObject);        //충돌 시 총알은 바로 파괴
+    }
+
+    void Explode() //총알 폭발 - 범위 공격
+    {
+
+    }
+
+    void Damage (Transform enemy) // 데미지 입력
+    {
+        Destroy(enemy.gameObject);  // 일단은 적이 데미지 입력 시 바로 죽도록 설정
+        Debug.Log("TODO List - (Health - Damage) Logic"); //추후 체력 업데이트 시 데미지 함수 수정 예정
     }
 }
