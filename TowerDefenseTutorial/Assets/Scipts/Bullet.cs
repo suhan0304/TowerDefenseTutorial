@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World); //총알이 적을 향해 이동
+        transform.LookAt(target); //총알이 적을 향해 바라보도록 설정
     }
 
     void HitTarget() //총알이 적에 도달했을때
