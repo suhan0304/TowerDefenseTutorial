@@ -57,6 +57,14 @@ public class Bullet : MonoBehaviour
 
     void Explode() //총알 폭발 - 범위 공격
     {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius); //원으로 된 반경 이내 모든 콜라이더들을 불러오는 함수
+        foreach(Collider collider in colliders) //각 콜라이더를 접근하면서 에너미만 구별 = 어떻게? 태그로!
+        {
+            if (collider.tag == " Enemy")
+            {
+                Damage(collider.transform); //에너미 객체이며 + 폭발 범위 안에 있다? = 데미지 입력
+            }
+        }
 
     }
 
