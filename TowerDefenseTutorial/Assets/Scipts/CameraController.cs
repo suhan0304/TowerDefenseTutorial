@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private bool doMovement = true;
+    private bool doMovement = false;
 
     public float panSpeed = 30f; //평면으로 카메라가 움직이는 속도
     public float panBorderThickness = 10; //화면을 움직일 마우스 테두리 위치 굵기
