@@ -6,7 +6,8 @@ public class Node : MonoBehaviour
     public Color hoverColor; //색
     public Vector3 positionOffset;
 
-    private GameObject turret;
+    [Header("Optional")] //이렇게 Optional을 해놓으면 나중에 봤을때 None으로 되어있어도 놀라지 않음
+    public GameObject turret; //public으로 해서 BuildManager에서 나중에 터렛을 설정할 수 있도록 함
 
     private Renderer rend;
     private Color startColor;
@@ -21,23 +22,23 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionOffset;
+    }
+
     private void OnMouseDown()
     {
-        if (buildManager.GetTurretToBuild() == null) //건설할 터렛이 null (건설할 터렛을 선택하지 않으면)
-            return;                                  //노드를 클릭해도 터렛을 건설하지 않고 그냥 return 시킴
+        if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
+            return;
 
-        if(turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습
+        if (turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습
         {
             Debug.Log("Can't build there! - TODO : Display on screen.");
             return;
         }
 
-        //Build a turret
-        GameObject turretBuild = BuildManager.instance.GetTurretToBuild(); //빌드 매니저를 바로 호출 가능(싱그톤)
-        
-        //노드 위치에 건설 시 노드와 동일한 Position에 겹쳐서 생성됨 ( 노드 내부에 터렛이 위치함 )
-        //높이 오프셋을 선언해 준 후 위치 벡터에 더해서 초기 생성 위치를 조정해준다. -> Offset은 노드 프리팹의 인스펙터에서 조정 가능 
-        turret =  (GameObject)Instantiate(turretBuild, transform.position + positionOffset, transform.rotation); //건설할 터렛을 복사 한 후 turret 변수에 초기화
+        buildManager.BuildTurretOn(this); //이(this) 노드에 Turret을 건설
     }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
@@ -45,8 +46,8 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null) //건설할 터렛이 null (건설할 터렛을 선택하지 않으면)
-            return;                                  //노드에 마우스가 올라와도 하이라이트 시키지 않고 그냥 return 시킴
+        if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
+            return;                                 
 
         //렌더러를 매번 마우스가 들어갈 때마다 아래와 같이 찾는 것은 성능 낭비 -> 게임 시작에서 한 번만 찾고 저장
         //GetComponent<Renderer>().material.color = hoverColor;

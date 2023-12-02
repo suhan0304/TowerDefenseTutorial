@@ -20,15 +20,28 @@ public class BuildManager : MonoBehaviour
     public GameObject standardTurretPrefab; //기본 터렛 프리팹
     public GameObject missileLauncherPrefab; //미사일 런처 프리팹
 
-    private GameObject turretToBuild; //노드 선택 시 건설할 터렛
+    private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛
+    
+    public bool CanBuild { get { return turretToBuild != null; } } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
 
-    public GameObject GetTurretToBuild() //건설할 터렛을 가져오는 함수
+    public void BuildTurretOn(Node node)
     {
-        return turretToBuild;
+        if (PlayerStats.Money < turretToBuild.cost) //플레이어의 돈이 turret의 cost보다 적다면
+        {
+            Debug.Log("Not Enough Money!"); //돈이 부족하다고 출력 후
+            return;                         //건설하지 않고 리턴
+        }
+
+        PlayerStats.Money -= turretToBuild.cost; //터렛을 지었으므로 머니를 비용만큼 감소
+
+        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret; //node의 turret을 turret으로 설정
+
+        Debug.Log("Turret Build! Money Left : " + PlayerStats.Money); 
     }
 
-    public void SetTurretToBuild(GameObject turret)//건설할 터렛을 선택
+    public void SelectTurretToBuild (TurretBlueprint turret)
     {
-        turretToBuild = turret;
+        turretToBuild = turret; //건설하기위해 선택한 터렛을 turretToBuild에 넣어준다.
     }
 }
