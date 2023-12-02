@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    public TurretBlueprint standradTurret; //터렛 청사진
+    public TurretBlueprint MissileLauncher; //미사일 런처 청사진
     BuildManager buildManager;
 
     private void Start() //빌드 매니저 참조를 위해 instance 초기화
