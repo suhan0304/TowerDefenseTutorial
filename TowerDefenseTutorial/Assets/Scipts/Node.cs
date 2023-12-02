@@ -6,7 +6,7 @@ public class Node : MonoBehaviour
     public Color hoverColor; //색
     public Vector3 positionOffset;
 
-    [Header("Optional")]
+    [Header("Optional")] //이렇게 Optional을 해놓으면 나중에 봤을때 None으로 되어있어도 놀라지 않음
     public GameObject turret; //public으로 해서 BuildManager에서 나중에 터렛을 설정할 수 있도록 함
 
     private Renderer rend;
