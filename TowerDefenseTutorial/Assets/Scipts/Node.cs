@@ -6,7 +6,8 @@ public class Node : MonoBehaviour
     public Color hoverColor; //색
     public Vector3 positionOffset;
 
-    private GameObject turret;
+    [Header("Optional")]
+    public GameObject turret; //public으로 해서 BuildManager에서 나중에 터렛을 설정할 수 있도록 함
 
     private Renderer rend;
     private Color startColor;
