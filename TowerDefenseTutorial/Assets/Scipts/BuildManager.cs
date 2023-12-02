@@ -20,14 +20,16 @@ public class BuildManager : MonoBehaviour
     public GameObject standardTurretPrefab; //기본 터렛 프리팹
     public GameObject missileLauncherPrefab; //미사일 런처 프리팹
 
-    private GameObject turretToBuild; //노드 선택 시 건설할 터렛
+    private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛
+    
+    public bool CanBuild { get { return turretToBuild != null; } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
 
-    public GameObject GetTurretToBuild() //건설할 터렛을 가져오는 함수
+    public void BuildTurretOn(Node node)
     {
-        return turretToBuild;
+        Instantiate(turretToBuild.prefab, node.transform.position + node.positionOffset, )
     }
 
-    public void SetTurretToBuild(GameObject turret)//건설할 터렛을 선택
+    public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret;
     }
