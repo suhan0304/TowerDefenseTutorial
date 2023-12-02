@@ -22,11 +22,12 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛
     
-    public bool CanBuild { get { return turretToBuild != null; } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
+    public bool CanBuild { get { return turretToBuild != null; } } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
 
     public void BuildTurretOn(Node node)
     {
-        Instantiate(turretToBuild.prefab, node.transform.position + node.positionOffset, )
+        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret; //node의 turret을 turret으로 설정
     }
 
     public void SelectTurretToBuild (TurretBlueprint turret)
