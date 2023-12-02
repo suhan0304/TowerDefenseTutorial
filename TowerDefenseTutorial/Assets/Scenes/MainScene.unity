@@ -2184,6 +2184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbde764c12b26a43ae4b3402cf65ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standradTurret: {fileID: 0}
+  MissileLauncher: {fileID: 0}
 --- !u!1001 &281503026
 PrefabInstance:
   m_ObjectHideFlags: 0
