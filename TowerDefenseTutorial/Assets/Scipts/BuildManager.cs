@@ -20,6 +20,8 @@ public class BuildManager : MonoBehaviour
     public GameObject standardTurretPrefab; //기본 터렛 프리팹
     public GameObject missileLauncherPrefab; //미사일 런처 프리팹
 
+    public GameObject buildEffect; //건설 이펙트
+
     private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛
     
     public bool CanBuild { get { return turretToBuild != null; } } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
@@ -37,6 +39,9 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret; //node의 turret을 turret으로 설정
+
+        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
+        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
 
         Debug.Log("Turret Build! Money Left : " + PlayerStats.Money); 
     }
