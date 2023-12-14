@@ -1494,6 +1494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurretPrefab: {fileID: 490692619051627204, guid: 9a9ce06bd53f7c843b26d1d6631eaab7, type: 3}
   missileLauncherPrefab: {fileID: 1103602849747682149, guid: 3175728b87250154cb406ef6456683c8, type: 3}
+  buildEffect: {fileID: 6301876659330832265, guid: c532d4dd74bf9d84391b28f999aae5a5, type: 3}
 --- !u!114 &221566679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6950,7 +6951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206140325273581760, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Name
-      value: StandardTurretItem (1)
+      value: MissileLauncherItem
       objectReference: {fileID: 0}
     - target: {fileID: 6761488958187848716, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Pivot.x
@@ -7031,6 +7032,13 @@ PrefabInstance:
     - target: {fileID: 6761488958187848716, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095544976248567569, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
+      propertyPath: m_Text
+      value: '$250
+
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
