@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor; //색
+    private Color notEnoughMoneyColor; //비용 부족 노드색
     public Vector3 positionOffset;
 
     [Header("Optional")] //이렇게 Optional을 해놓으면 나중에 봤을때 None으로 되어있어도 놀라지 않음
@@ -52,8 +53,15 @@ public class Node : MonoBehaviour
         //렌더러를 매번 마우스가 들어갈 때마다 아래와 같이 찾는 것은 성능 낭비 -> 게임 시작에서 한 번만 찾고 저장
         //GetComponent<Renderer>().material.color = hoverColor;
 
-        //Start에서 저장된 렌더러를 호출해서 색을 변경
-        rend.material.color = hoverColor;
+        //마우스를 올려놓았을 때 건물을 건설할 수 있는 충분한 돈이 있는지 확인후 노드 색을 변경
+        if(buildManager.HasMoney) //돈이 충분하면 hoverColor
+        {
+            rend.material.color = hoverColor;
+        }
+        else //돈이 부족하면 notEnoughMoneyColor
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
     }
 
     private void OnMouseExit() //마우스가 오브젝트에서 나갈 때
