@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor; //색
-    private Color notEnoughMoneyColor; //비용 부족 노드색
+    public Color notEnoughMoneyColor; //비용 부족 노드색
     public Vector3 positionOffset;
 
     [Header("Optional")] //이렇게 Optional을 해놓으면 나중에 봤을때 None으로 되어있어도 놀라지 않음
