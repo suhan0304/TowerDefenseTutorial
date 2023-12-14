@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3423078409582660257, guid: 574f9549c10f74f4e9424c30a9854c02, type: 3}
   spawnPoint: {fileID: 741011946}
-  timeBetweenWaves: 5.5
+  timeBetweenWaves: 20
   waveCountdownText: {fileID: 1151689833}
 --- !u!4 &221566677
 Transform:

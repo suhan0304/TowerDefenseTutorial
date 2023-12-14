@@ -27,8 +27,12 @@ public class WaveSpawner : MonoBehaviour
 
         //deltaTime//마지막 프레임을 그린 후 경과한 시간
         countdown -= Time.deltaTime; //시간을 계속 줄인다.
+        
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity); //카운트 다운이 0보다 낮아지지 않도록 설정
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString();
+        waveCountdownText.text = string.Format("{0:00.00}", countdown); //출력 형식을 지정
+
+        //waveCountdownText.text = Mathf.Round(countdown).ToString();
     }
 
     IEnumerator SpawnWave() //코루틴
