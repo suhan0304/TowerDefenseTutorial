@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10f; //속도
 
+    public int health = 100;
+
     private Transform target; //목표 방향
     private int wavepointIndex = 0;//현재 목표로하는 웨이포인트 인덱스
 
@@ -12,6 +14,21 @@ public class Enemy : MonoBehaviour
         //WayPoints의 points를 static으로 선언해놨기 때문에 바로 불러올 수 있다.
         //points를 싱글톤 디자인 패턴으로 사용하는 모습
         target = WayPoints.points[0]; 
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount; //amount 만큼 체력 감소
+
+        if(health <= 0)
+        {
+            Die(); // 에너미 사망 메서드
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     void Update()
