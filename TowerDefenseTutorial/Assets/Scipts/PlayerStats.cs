@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     public static int Lives; //현재 생명 값
     public static int startLives = 20; //초기화 값
+
     void Start()
     {
         Money = startMoney; //게임 시작 시 Money를 시작 머니로 설정    
