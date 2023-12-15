@@ -34,8 +34,8 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.Money += value; //플레이어에게 돈 지급
 
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(deathEffect, 5f);
+        GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
 
         Destroy(gameObject);
     }
