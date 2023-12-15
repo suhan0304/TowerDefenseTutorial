@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool gameEnded = false; 
-    1
+    
     void Update()
     {
         if (gameEnded)
