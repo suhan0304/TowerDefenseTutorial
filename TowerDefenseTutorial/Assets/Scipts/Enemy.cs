@@ -35,11 +35,17 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= WayPoints.points.Length - 1) //만약 가지고 있는 모든 웨이포인트를 방문 > 도착 지점 도달
         {
-            Destroy(gameObject); //도착지점 도착 시 오브젝트 파괴
+            EndPath();
             return; //아래의 다음 웨이포인트 가져오는 것을 하지 않고 바로 종료
         }
 
         wavepointIndex++; //다음 웨이포인트 인덱스
         target = WayPoints.points[wavepointIndex]; //다음 인덱스의 웨이포인트 오브젝트를 받아온다.
+    }
+
+    void EndPath() //경로의 끝(목표)에 도달
+    {
+        Destroy(gameObject); //도착지점 도착 시 오브젝트 파괴
+        PlayerStats.Lives--; // lives를 1 감소
     }
 }
