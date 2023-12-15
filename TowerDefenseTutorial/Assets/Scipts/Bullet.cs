@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f; //초알의 속도
 
-    public int damage = 50;
+    public int damage = 50; //초기 데미지 - 프리팹의 인스펙터에서 개별 설정 가능
 
     public float explosionRadius = 0f; //총알의 폭발 범위
     public GameObject impactEffect; //총알 임팩트 효과
