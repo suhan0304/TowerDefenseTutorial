@@ -5,6 +5,9 @@ public class Bullet : MonoBehaviour
     private Transform target; //총알의 목표 오브젝트
 
     public float speed = 70f; //초알의 속도
+
+    public int damage = 50;
+
     public float explosionRadius = 0f; //총알의 폭발 범위
     public GameObject impactEffect; //총알 임팩트 효과
 
@@ -67,8 +70,12 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy) // 데미지 입력
     {
-        Destroy(enemy.gameObject);  // 일단은 적이 데미지 입력 시 바로 죽도록 설정
-        Debug.Log("TODO List - (Health - Damage) Logic"); //추후 체력 업데이트 시 데미지 함수 수정 예정
+        Enemy e = enemy.GetComponent<Enemy>();  //Enemy 오브젝트의 컴포넌트 enemy 스크립트를 e로 불러온 후에
+
+        if (e != null) // e가 null이 아닐 때만 실행
+        {
+            e.TakeDamage(damage);                   //enemy 스크립트 내부 메서드인 TakeDamage에 damage 변수를 넘겨서 데미지 로직 실행
+        }
     }
 
     private void OnDrawGizmosSelected()
