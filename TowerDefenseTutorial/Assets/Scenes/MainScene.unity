@@ -3714,7 +3714,7 @@ GameObject:
   - component: {fileID: 531381257}
   - component: {fileID: 531381256}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: BottomCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5100,7 +5100,7 @@ GameObject:
   - component: {fileID: 666461304}
   - component: {fileID: 666461303}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Overlay Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
