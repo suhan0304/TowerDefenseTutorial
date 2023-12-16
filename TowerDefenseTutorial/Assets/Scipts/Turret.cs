@@ -7,11 +7,20 @@ public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
 
-    [Header("Attributes")]
+    [Header("General")]
 
     public float range = 15f; // 사거리는 15로 설정
+
+
+    [Header("Use Bullets (default)")]
+
+    public GameObject bulletPrefab; //총알 프리팹
     public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
     private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
+
+    [Header("Use Laser (default)")]
+    public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
+    public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
 
     [Header("Unity Setup Fields")]
 
@@ -20,7 +29,6 @@ public class Turret : MonoBehaviour
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
 
-    public GameObject bulletPrefab; //총알 프리팹
     public Transform firePoint; //총알이 복사되어 생성될 위치
 
     // Start is called before the first frame update
@@ -63,10 +71,39 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null) //타겟이 없으면 리턴 (아무런 행동도 하지 않음)
+        if (target == null) {//타겟이 없으면
+            if(useLaser) //레이저 포탑은 레이저를 꺼줘야 함 ( 라인 렌더러를 지워줘야 함)
+            {
+                if(lineRenderer.enabled) //라인 렌더러 컴포넌트를 비활성화
+                    lineRenderer.enabled = false;
+            }
             return;
+        }
 
         //--- 만약 target이 있다면 ---
+        //target Lock On
+        LockOnTarget();
+
+        if(useLaser) //레이저를 사용하는 포탑의 경우
+        {
+            Laser(); //레이저 그리기
+        }
+        else //일반 총알을 사용하는 경우 
+        {
+            if (fireCountdown <= 0f)
+            { //카운트 다운이 0이 되면 shoot 발사
+                Shoot();
+                fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
+            }
+
+            fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
+        }
+        
+    }
+
+    void LockOnTarget()
+    {
+        //target Lock On
         Vector3 dir = target.position - transform.position; //목표 방향 = 타겟 위치 - 내 위치
         Quaternion lookRotation = Quaternion.LookRotation(dir); //dir 방향을 보도록 회전하는 정도
 
@@ -78,14 +115,13 @@ public class Turret : MonoBehaviour
 
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
-
-        if(fireCountdown <= 0f) { //카운트 다운이 0이 되면 shoot 발사
-            Shoot();
-            fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
-        }
-
-        fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
-        
+    }
+    void Laser() //레이저 그리기
+    {
+        if (!lineRenderer.enabled) //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
+            lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, firePoint.position); //시작점을 Fire Point로 
+        lineRenderer.SetPosition(1, target.position); //끝점을 Fire Point로 
     }
     void Shoot()
     {
