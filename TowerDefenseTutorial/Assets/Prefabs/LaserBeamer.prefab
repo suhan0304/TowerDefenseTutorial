@@ -288,7 +288,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 1717717214133070589}
   enemyTag: Enemy
   partToRotate: {fileID: 7501623607575624333}
-  turnSpeed: 10
+  turnSpeed: 30
   firePoint: {fileID: 795978828251335947}
 --- !u!120 &1717717214133070589
 LineRenderer:

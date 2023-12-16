@@ -84,11 +84,11 @@ public class Turret : MonoBehaviour
         //target Lock On
         LockOnTarget();
 
-        if(useLaser)
+        if(useLaser) //레이저를 사용하는 포탑의 경우
         {
-            Laser();
+            Laser(); //레이저 그리기
         }
-        else
+        else //일반 총알을 사용하는 경우 
         {
             if (fireCountdown <= 0f)
             { //카운트 다운이 0이 되면 shoot 발사
