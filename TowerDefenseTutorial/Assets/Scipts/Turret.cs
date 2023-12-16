@@ -71,8 +71,14 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null) //타겟이 없으면 리턴 (아무런 행동도 하지 않음)
+        if (target == null) {//타겟이 없으면
+            if(useLaser) //레이저 포탑은 레이저를 꺼줘야 함 ( 라인 렌더러를 지워줘야 함)
+            {
+                if(lineRenderer.enabled) //라인 렌더러 컴포넌트를 비활성화
+                    lineRenderer.enabled = false;
+            }
             return;
+        }
 
         //--- 만약 target이 있다면 ---
         //target Lock On
@@ -112,6 +118,8 @@ public class Turret : MonoBehaviour
     }
     void Laser() //레이저 그리기
     {
+        if (!lineRenderer.enabled) //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
+            lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, firePoint.position); //시작점을 Fire Point로 
         lineRenderer.SetPosition(1, target.position); //끝점을 Fire Point로 
     }
