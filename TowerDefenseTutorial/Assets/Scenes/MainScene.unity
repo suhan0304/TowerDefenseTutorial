@@ -7023,7 +7023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206140325273581760, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Name
-      value: LaserBeamer
+      value: LaserBeamerItem
       objectReference: {fileID: 0}
     - target: {fileID: 6761488958187848716, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Pivot.x
@@ -7107,10 +7107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8095544976248567569, guid: ddafb863b8369ad41a1b022d5cd12130, type: 3}
       propertyPath: m_Text
-      value: '$250
-
-
-'
+      value: $350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
