@@ -16791,7 +16791,7 @@ GameObject:
   - component: {fileID: 3888212168529742095}
   - component: {fileID: 4521162063353041846}
   m_Layer: 0
-  m_Name: Laser Beamer
+  m_Name: LaserBeamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
