@@ -16,10 +16,6 @@ public class BuildManager : MonoBehaviour
         //빌드 매니저는 하나의 인스턴스로만 유지됨 (싱글톤 패턴의 특징 : 하나의 인스턴스만 유지)
         instance = this;
     }
-
-    public GameObject standardTurretPrefab; //기본 터렛 프리팹
-    public GameObject missileLauncherPrefab; //미사일 런처 프리팹
-
     public GameObject buildEffect; //건설 이펙트
 
     private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛
