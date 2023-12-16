@@ -7,11 +7,20 @@ public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
 
-    [Header("Attributes")]
+    [Header("General")]
 
     public float range = 15f; // 사거리는 15로 설정
+
+
+    [Header("Use Bullets (default)")]
+
+    public GameObject bulletPrefab; //총알 프리팹
     public float fireRate = 1f; //초당 발사하는 탄의 개수 (공격 속도)
     private float fireCountdown = 0f; //fireRate에 맞게 공격하도록 fireCountdown을 설정한 후 해당 주기마다 공격
+
+    [Header("Use Laser (default)")]
+    public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
+    public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
 
     [Header("Unity Setup Fields")]
 
@@ -20,7 +29,6 @@ public class Turret : MonoBehaviour
     public Transform partToRotate; //실제로 base를 제외하고 회전될 오브젝트의 트랜스폼
     public float turnSpeed = 10f;
 
-    public GameObject bulletPrefab; //총알 프리팹
     public Transform firePoint; //총알이 복사되어 생성될 위치
 
     // Start is called before the first frame update
