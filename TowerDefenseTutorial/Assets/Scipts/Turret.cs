@@ -110,8 +110,10 @@ public class Turret : MonoBehaviour
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
     }
-    void Laser()
+    void Laser() //레이저 그리기
     {
+        lineRenderer.SetPosition(0, firePoint.position); //시작점을 Fire Point로 
+        lineRenderer.SetPosition(1, target.position); //끝점을 Fire Point로 
     }
     void Shoot()
     {
