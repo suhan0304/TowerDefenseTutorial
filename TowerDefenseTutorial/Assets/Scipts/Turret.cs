@@ -75,6 +75,29 @@ public class Turret : MonoBehaviour
             return;
 
         //--- 만약 target이 있다면 ---
+        //target Lock On
+        LockOnTarget();
+
+        if(useLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            if (fireCountdown <= 0f)
+            { //카운트 다운이 0이 되면 shoot 발사
+                Shoot();
+                fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
+            }
+
+            fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
+        }
+        
+    }
+
+    void LockOnTarget()
+    {
+        //target Lock On
         Vector3 dir = target.position - transform.position; //목표 방향 = 타겟 위치 - 내 위치
         Quaternion lookRotation = Quaternion.LookRotation(dir); //dir 방향을 보도록 회전하는 정도
 
@@ -86,14 +109,9 @@ public class Turret : MonoBehaviour
 
         //y축을 중심으로만 회전하기를 원하기 때문에 y회전 정도만 불러와서 사용한다.
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); 
-
-        if(fireCountdown <= 0f) { //카운트 다운이 0이 되면 shoot 발사
-            Shoot();
-            fireCountdown = 1f / fireRate; // 1초에 fireRate 만큼 발사되도록 Countdown 설정
-        }
-
-        fireCountdown -= Time.deltaTime; //카운트 다운을 계속 줄여서 shoot이 반복되도로 ㄱ설정
-        
+    }
+    void Laser()
+    {
     }
     void Shoot()
     {
