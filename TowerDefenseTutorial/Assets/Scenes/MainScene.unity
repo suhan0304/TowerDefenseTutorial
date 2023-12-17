@@ -2124,6 +2124,95 @@ MonoBehaviour:
   LaserBeamer:
     prefab: {fileID: 7815840761427884519, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
     cost: 350
+--- !u!1001 &272131143
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime0
+      value: 771
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.49303108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.3186632
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.27022555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717717214133070589, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.13381095
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432718339225096682, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7815840761427884519, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+      propertyPath: m_Name
+      value: LaserBeamer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
 --- !u!1001 &281503026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16849,3 +16938,4 @@ SceneRoots:
   - {fileID: 951853569}
   - {fileID: 984985240}
   - {fileID: 531381259}
+  - {fileID: 272131143}
