@@ -21,6 +21,8 @@ public class Turret : MonoBehaviour
     [Header("Use Laser (default)")]
     public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
     public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
+    public ParticleSystem impactEffect; //레이저 이펙트
+    public Light impactLight; // 조명 이펙트
 
     [Header("Unity Setup Fields")]
 
@@ -74,8 +76,12 @@ public class Turret : MonoBehaviour
         if (target == null) {//타겟이 없으면
             if(useLaser) //레이저 포탑은 레이저를 꺼줘야 함 ( 라인 렌더러를 지워줘야 함)
             {
-                if(lineRenderer.enabled) //라인 렌더러 컴포넌트를 비활성화
-                    lineRenderer.enabled = false;
+                if (lineRenderer.enabled)
+                { 
+                    lineRenderer.enabled = false; //라인 렌더러 컴포넌트를 비활성화
+                    impactEffect.Stop();  //이펙트 종료
+                    impactLight.enabled = false; //Light 비활성화
+                }
             }
             return;
         }
@@ -118,10 +124,21 @@ public class Turret : MonoBehaviour
     }
     void Laser() //레이저 그리기
     {
-        if (!lineRenderer.enabled) //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
-            lineRenderer.enabled = true;
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true; //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
+            impactEffect.Play(); //파티클 시스템 재생
+            impactLight.enabled = true; //Light 활성화
+        }
+
         lineRenderer.SetPosition(0, firePoint.position); //시작점을 Fire Point로 
         lineRenderer.SetPosition(1, target.position); //끝점을 Fire Point로 
+
+        Vector3 dir = firePoint.position - target.position; //총구로부터 타겟으로의 방향 벡터
+
+        impactEffect.transform.position = target.position + dir.normalized * 1f;   //파티클 위치를 타겟 위치에서 살짝 터렛 방향으로 이동 시킨 위치로 생성
+                                                                                    //레이저 이팩트가 적의 표면에 위치하도록 (중심에 위치X)
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir); //이펙트의 각도를 해당 방향 벡터로 설정
     }
     void Shoot()
     {
