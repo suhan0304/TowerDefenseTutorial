@@ -3,6 +3,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float startSpeed = 10f; //시작 속도
+
+    [HideInInspector]
     public float speed; //속도
 
     public float health = 100; //몬스터 초기 체력
