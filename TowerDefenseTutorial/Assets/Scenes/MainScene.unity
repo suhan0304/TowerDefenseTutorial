@@ -16829,6 +16829,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3831210858912543702, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77c02409872ee3d4fa506406a4a841a1, type: 2}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: EmissionModule.m_BurstCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startRotation.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startRotation.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4649574103470082773, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
       propertyPath: m_Name
       value: LaserImpactEffect
