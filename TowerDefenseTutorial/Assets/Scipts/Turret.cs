@@ -135,7 +135,6 @@ public class Turret : MonoBehaviour
         targetEnemy.Slow(slowPct); //둔화 효과 실행
 
         //----- Lase Graphic -----
-
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true; //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
