@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10f; //속도
 
-    public int health = 100; //몬스터 초기 체력
+    public float health = 100; //몬스터 초기 체력
 
     public int value = 50; //몬스터를 죽일 시 플레이어에게 주어질 돈
 
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         target = WayPoints.points[0]; 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount; //amount 만큼 체력 감소
 

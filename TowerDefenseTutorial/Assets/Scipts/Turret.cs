@@ -128,7 +128,7 @@ public class Turret : MonoBehaviour
     void Laser() //레이저 그리기
     {
         //---- Damage ----
-
+        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
 
 
         //----- Lase Graphic -----
