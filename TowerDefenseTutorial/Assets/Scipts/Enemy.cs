@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         }
     }
     public void Slow(float pct) { //둔화 효과
-        speed = speed * (1f - pct); // (1 - 둔화율) * 현재 이동속도 = 이동속도
+        speed = startSpeed * (1f - pct); // (1 - 둔화율) * 현재 이동속도 = 이동속도
     }
 
     void Die()
