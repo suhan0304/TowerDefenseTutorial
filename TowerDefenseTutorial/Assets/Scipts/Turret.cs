@@ -22,6 +22,7 @@ public class Turret : MonoBehaviour
     public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
     public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
     public ParticleSystem impactEffect; //레이저 이펙트
+    public Light impactLight; // 조명 이펙트
 
     [Header("Unity Setup Fields")]
 
@@ -79,6 +80,7 @@ public class Turret : MonoBehaviour
                 { 
                     lineRenderer.enabled = false; //라인 렌더러 컴포넌트를 비활성화
                     impactEffect.Stop();  //이펙트 종료
+                    impactLight.enabled = false; //Light 비활성화
                 }
             }
             return;
@@ -126,6 +128,7 @@ public class Turret : MonoBehaviour
         {
             lineRenderer.enabled = true; //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
             impactEffect.Play(); //파티클 시스템 재생
+            impactLight.enabled = true; //Light 활성화
         }
 
         lineRenderer.SetPosition(0, firePoint.position); //시작점을 Fire Point로 
