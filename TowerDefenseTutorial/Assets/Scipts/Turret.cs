@@ -6,6 +6,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
+    private Enemy targetEnemy;
 
     [Header("General")]
 
@@ -66,6 +67,7 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range) //적을 찾았고 + 사거리 안에 들어왔다면
         {
             target = nearestEnemy.transform;    //이제 목표 오브젝트를 미리 찾아놓은 적으로 설정
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {
@@ -128,7 +130,7 @@ public class Turret : MonoBehaviour
     void Laser() //레이저 그리기
     {
         //---- Damage ----
-        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
 
 
         //----- Lase Graphic -----
