@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
             Die(); // 에너미 사망 메서드
         }
     }
+    public void Slow(float pct) { //둔화 효과
+        speed = speed * (1f - pct); // (1 - 둔화율) * 현재 이동속도 = 이동속도
+    }
 
     void Die()
     {
