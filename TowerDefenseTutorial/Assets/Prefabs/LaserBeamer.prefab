@@ -286,6 +286,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   fireRate: 1
   useLaser: 1
+  damageOverTime: 30
+  slowPct: 0.5
   lineRenderer: {fileID: 1717717214133070589}
   impactEffect: {fileID: 2391958008483069711}
   impactLight: {fileID: 7868276098807349454}
@@ -345,8 +347,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.006389618
-        value: 0.36764526
+        time: 0.009586334
+        value: 0.25735474
         inSlope: 0
         outSlope: 0
         tangentMode: 0

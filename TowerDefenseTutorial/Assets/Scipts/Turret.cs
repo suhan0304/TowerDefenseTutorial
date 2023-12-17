@@ -6,6 +6,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public Transform target; // 공격할목표 오브젝트
+    private Enemy targetEnemy;
 
     [Header("General")]
 
@@ -20,6 +21,10 @@ public class Turret : MonoBehaviour
 
     [Header("Use Laser (default)")]
     public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
+
+    public int damageOverTime = 30; //초당 데미지 30
+    public float slowPct = .5f; //둔화율 50%
+
     public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
     public ParticleSystem impactEffect; //레이저 이펙트
     public Light impactLight; // 조명 이펙트
@@ -63,6 +68,7 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range) //적을 찾았고 + 사거리 안에 들어왔다면
         {
             target = nearestEnemy.transform;    //이제 목표 오브젝트를 미리 찾아놓은 적으로 설정
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {
@@ -124,6 +130,11 @@ public class Turret : MonoBehaviour
     }
     void Laser() //레이저 그리기
     {
+        //---- Damage ----
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime); //초당 데미지 입력
+        targetEnemy.Slow(slowPct); //둔화 효과 실행
+
+        //----- Lase Graphic -----
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true; //레이저(라인 렌더러)가 꺼져있으면 키고 나서 위치 설정
