@@ -115,7 +115,7 @@ public class Turret : MonoBehaviour
 
         //유니티는 x, y, z를 오일러 각도를 기준으로 사용하고 있다. 
         //Vector3 rotation = lookRotation.eulerAngles; //따라서 우리가 원하는회전을 오일러 각도로 변환해준다.
-        //윗줄 코드를 아래의 부드럽게 회전하는 코드로 수정
+        //윗줄 코드를 아래의 부드럽게 회전하는 코드로 수정 
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         //partToRate의 회전에서 lookRotation의 회전까지 turnSpeed 단위로 변경되면서 회전을 내보내면 해당 회전을 오일러 각도로 변환해서 rotation Vector에 저장함.
 
