@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f; //속도
+    public float startSpeed = 10f; //시작 속도
+    public float speed; //속도
 
     public float health = 100; //몬스터 초기 체력
 
     public int worth = 50; //몬스터를 죽일 시 플레이어에게 주어질 돈
 
     public GameObject deathEffect;
+
+    private void Start()
+    {
+        speed = startSpeed;
+    }
 
     public void TakeDamage(float amount)
     {
