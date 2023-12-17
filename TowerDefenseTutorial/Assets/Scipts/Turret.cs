@@ -20,6 +20,9 @@ public class Turret : MonoBehaviour
 
     [Header("Use Laser (default)")]
     public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
+
+    public int damageOverTime = 30;
+
     public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
     public ParticleSystem impactEffect; //레이저 이펙트
     public Light impactLight; // 조명 이펙트
