@@ -34,6 +34,8 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWayPoint(); //다음 웨이포인트를 타겟으로 변경
         }
+
+        enemy.speed = enemy.startSpeed; //둔화 효과를 초기화하기 위한 속도 리셋
     }
 
     void GetNextWayPoint()
