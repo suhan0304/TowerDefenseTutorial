@@ -133,7 +133,7 @@ public class Turret : MonoBehaviour
 
         Vector3 dir = firePoint.position - target.position; //총구로부터 타겟으로의 방향 벡터
 
-        impactEffect.transform.position = target.position + dir.normalized * .5f;   //파티클 위치를 타겟 위치에서 살짝 터렛 방향으로 이동 시킨 위치로 생성
+        impactEffect.transform.position = target.position + dir.normalized * 1f;   //파티클 위치를 타겟 위치에서 살짝 터렛 방향으로 이동 시킨 위치로 생성
                                                                                     //레이저 이팩트가 적의 표면에 위치하도록 (중심에 위치X)
         impactEffect.transform.rotation = Quaternion.LookRotation(dir); //이펙트의 각도를 해당 방향 벡터로 설정
     }
