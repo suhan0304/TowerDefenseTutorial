@@ -22,7 +22,8 @@ public class Turret : MonoBehaviour
     [Header("Use Laser (default)")]
     public bool useLaser = false; //레이저를 사용하는 포탑인가? (기본값은 False)
 
-    public int damageOverTime = 30;
+    public int damageOverTime = 30; //초당 데미지 30
+    public float slowPct = .5f; //둔화율 50%
 
     public LineRenderer lineRenderer; //레이저를 사용하면 라인 렌더러가 필요함
     public ParticleSystem impactEffect; //레이저 이펙트
@@ -130,8 +131,8 @@ public class Turret : MonoBehaviour
     void Laser() //레이저 그리기
     {
         //---- Damage ----
-        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime); //초당 데미지 입력
+        targetEnemy.Slow(slowPct); //둔화 효과 실행
 
         //----- Lase Graphic -----
 

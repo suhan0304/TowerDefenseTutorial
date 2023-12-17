@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Enemy enemy;
 
-    private void Start()
+    private void Start() 
     {
         enemy = GetComponent<Enemy>();
 
