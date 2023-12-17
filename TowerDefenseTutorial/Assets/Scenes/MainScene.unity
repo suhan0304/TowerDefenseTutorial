@@ -17659,7 +17659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.4
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
       propertyPath: CollisionModule.collisionMessages
@@ -17711,7 +17711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].time
-      value: 0
+      value: 0.86297226
       objectReference: {fileID: 0}
     - target: {fileID: 3908033595815779817, guid: dd1259f7ffd2eea459f2b90eb60d6f1f, type: 3}
       propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
