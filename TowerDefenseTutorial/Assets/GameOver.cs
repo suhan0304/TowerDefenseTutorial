@@ -21,6 +21,6 @@ public class GameOver : MonoBehaviour
 
     public void Menu()
     {
-        Debug.Log("Go to menu.") // Menu ui 구현 후 연결
+        Debug.Log("Go to menu."); // Menu ui 구현 후 연결
     }
 }
