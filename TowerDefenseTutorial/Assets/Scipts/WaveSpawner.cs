@@ -38,6 +38,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave() //코루틴
     {
         waveIndex++;//웨이브가 올때마다 레벨업
+        PlayerStats.Rounds++;
 
         for (int i = 0; i < waveIndex; i++)  //웨이브 레벨만큼 몬스터 소한
         {

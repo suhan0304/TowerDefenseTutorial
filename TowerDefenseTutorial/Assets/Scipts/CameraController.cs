@@ -14,6 +14,11 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.GameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Escape)) //ESC 키를 눌러 doMovement를 부울을 변경할 수 있다.
             doMovement = !doMovement;         //ESC 키를 눌러 카메라 움직임을 껐다 켰다 할 수 있다.
 

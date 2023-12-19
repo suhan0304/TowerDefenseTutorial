@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool gameEnded = false; 
-    
+    public static bool GameIsOver = false;
+
+    public GameObject gameOverUI;
+
+    private void Start()
+    {
+        GameIsOver = false; //게임 시작 시에 게임 오버를 False로 설정
+    }
+
     void Update()
     {
-        if (gameEnded)
+        if (GameIsOver)
             return;
+
+        if(Input.GetKeyDown("e"))
+        {
+            EndGame();
+        }
 
         if(PlayerStats.Lives <= 0) //플레이어 체력이 0 이하
         {
@@ -18,9 +30,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void EndGame()
+    void EndGame() 
     {
-        gameEnded = true;
-        Debug.Log("Game Over!"); //게임 종료
+        GameIsOver = true;
+        gameOverUI.SetActive(true); //게임 오버 UI 활성화
     }
 }
