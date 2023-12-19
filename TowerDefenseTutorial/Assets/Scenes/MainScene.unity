@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 84273716}
   - component: {fileID: 84273715}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,6 +1182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142867720}
+  - component: {fileID: 142867721}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -1213,6 +1214,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &142867721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142867719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5472c3c4c9037479183a9846323d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195602837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 350
-  startLives: 12
+  startLives: 0
 --- !u!114 &221566680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,6 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42bd97d5be0f3040acd573de0459fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 142867719}
 --- !u!1001 &225521286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12411,7 +12425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.005206492, g: 0.005206492, b: 0.009433985, a: 0.9372549}
+  m_Color: {r: 0.08033076, g: 0.04525633, b: 0.084905684, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14274,7 +14288,7 @@ GameObject:
   - component: {fileID: 1575945032}
   - component: {fileID: 1575945031}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
