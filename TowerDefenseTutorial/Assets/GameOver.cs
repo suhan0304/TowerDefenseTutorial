@@ -7,9 +7,8 @@ public class GameOver : MonoBehaviour
 {
     public Text roundsText;
 
-    void OnEable() //게임 오버 UI가 Active 시 실행
+    void OnEnable() //게임 오버 UI가 Active 시 실행
     {
         roundsText.text = PlayerStats.Rounds.ToString(); //라운드 설정
-
     }
 }
