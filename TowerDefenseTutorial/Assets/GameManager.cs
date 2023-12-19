@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameIsOver = false;
+        GameIsOver = false; //게임 시작 시에 게임 오버를 False로 설정
     }
 
     void Update()
@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void EndGame()
+    void EndGame() 
     {
         GameIsOver = true;
-        gameOverUI.SetActive(true);
+        gameOverUI.SetActive(true); //게임 오버 UI 활성화
     }
 }
