@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NodeUI : MonoBehaviour
 {
+    public GameObject ui;
+
     private Node target;
 
     public void SetTarget(Node _target)
@@ -11,7 +13,12 @@ public class NodeUI : MonoBehaviour
         target = _target;
 
         transform.position = target.GetBuildPosition(); // 노드 포지션이 아니라 빌드 포지션을 가져온다
-                                                        // 노드 포지션이면 노드의 정중앙을 기준으로 위치
-
+                   
+        ui.SetActive(true); //NodeUI 오브젝트를 활성화
+    }
+    
+    public void Hide()
+    {
+        ui.SetActive(false); //NodeUI 오브젝트를 비활성화
     }
 }
