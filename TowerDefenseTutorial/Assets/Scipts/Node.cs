@@ -43,7 +43,7 @@ public class Node : MonoBehaviour
             return;
 
         buildManager.BuildTurretOn(this); //이(this) 노드에 Turret을 건설
-    }
+}
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
     {
