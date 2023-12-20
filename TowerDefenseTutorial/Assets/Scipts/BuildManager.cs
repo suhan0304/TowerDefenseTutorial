@@ -66,8 +66,7 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret; //건설하기위해 선택한 터렛을 turretToBuild에 넣어준다.
-        selectNode = null; //선택한 노드는 null로 초기화
 
-        nodeUI.Hide();
+        DeselectNode();
     }
 }
