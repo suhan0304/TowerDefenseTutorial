@@ -30,14 +30,17 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
+        if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습
+        if (turret != null) //터렛 오브젝트가 null이 아니면 이미 터렛이 있다는 모습 -> 노드 선택
         {
-            Debug.Log("Can't build there! - TODO : Display on screen.");
+            buildManager.SelectNode(this);
             return;
         }
+
+        if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
+            return;
 
         buildManager.BuildTurretOn(this); //이(this) 노드에 Turret을 건설
     }
