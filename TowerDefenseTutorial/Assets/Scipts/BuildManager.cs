@@ -47,15 +47,27 @@ public class BuildManager : MonoBehaviour
     }
     public void SelectNode(Node node)
     {
+        if (selectNode == node)
+        {
+            DeselectNode();
+            return;
+        }
         selectNode = node; //선택한 노드에 매개변수 노드를 연결
         turretToBuild = null; //건물 건설은 더 이상 진행 X
 
         nodeUI.SetTarget(node);
+    }
+    public void DeselectNode()
+    {
+        selectNode = null;
+        nodeUI.Hide();
     }
 
     public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret; //건설하기위해 선택한 터렛을 turretToBuild에 넣어준다.
         selectNode = null; //선택한 노드는 null로 초기화
+
+        nodeUI.Hide();
     }
 }
