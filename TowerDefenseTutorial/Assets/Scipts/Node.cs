@@ -28,6 +28,12 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
+    void BuildTurret(TurretBlueprint blueprint)
+    {
+        
+
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -42,7 +48,7 @@ public class Node : MonoBehaviour
         if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
             return;
 
-        buildManager.BuildTurretOn(this); //이(this) 노드에 Turret을 건설
+        BuildTurret(blueprint); //이(this) 노드에 Turret을 건설
 }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
