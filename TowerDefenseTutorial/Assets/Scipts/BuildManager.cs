@@ -19,7 +19,7 @@ public class BuildManager : MonoBehaviour
     }
     public GameObject buildEffect; //건설 이펙트
 
-    private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛\
+    public TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛\
     private Node selectNode; // 선택한 노드
 
     public NodeUI nodeUI;
