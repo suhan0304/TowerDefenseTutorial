@@ -27,10 +27,7 @@ public class BuildManager : MonoBehaviour
     public bool CanBuild { get { return turretToBuild != null; } } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } } // 터렛 비용보다 소지한 돈이 많은지 확인하는 함수
 
-    public void BuildTurretOn(Node node)
-    {
-        
-    }
+ 
     public void SelectNode(Node node)
     {
         if (selectNode == node)
