@@ -2501,12 +2501,18 @@ MonoBehaviour:
   standradTurret:
     prefab: {fileID: 490692619051627204, guid: 9a9ce06bd53f7c843b26d1d6631eaab7, type: 3}
     cost: 100
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 60
   MissileLauncher:
     prefab: {fileID: 1103602849747682149, guid: 3175728b87250154cb406ef6456683c8, type: 3}
     cost: 250
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 150
   LaserBeamer:
     prefab: {fileID: 7815840761427884519, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
     cost: 350
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 250
 --- !u!1001 &281503026
 PrefabInstance:
   m_ObjectHideFlags: 0
