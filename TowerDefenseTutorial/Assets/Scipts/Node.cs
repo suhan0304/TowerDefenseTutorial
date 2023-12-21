@@ -64,7 +64,7 @@ public class Node : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
         Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
 
-        Debug.Log("Turret Build!");
+        Debug.Log("Turret Upgrade!");
     }
 }
 
