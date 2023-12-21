@@ -42,6 +42,8 @@ public class Node : MonoBehaviour
             return;                         //건설하지 않고 리턴
         }
 
+        turretBlueprint = blueprint; //노드의 turretBlueprint에 선택한 blueprint를 넣어준다.
+
         PlayerStats.Money -= blueprint.cost; //터렛을 지었으므로 머니를 비용만큼 감소
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
