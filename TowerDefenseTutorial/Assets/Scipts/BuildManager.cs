@@ -27,24 +27,6 @@ public class BuildManager : MonoBehaviour
     public bool CanBuild { get { return turretToBuild != null; } } // 터렛을 건설할 수 있는지 확인하는 부울 변수 ( Build할 Turret이 Null이 아니면 True 반환 )
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } } // 터렛 비용보다 소지한 돈이 많은지 확인하는 함수
 
-    public void BuildTurretOn(Node node)
-    {
-        if (PlayerStats.Money < turretToBuild.cost) //플레이어의 돈이 turret의 cost보다 적다면
-        {
-            Debug.Log("Not Enough Money!"); //돈이 부족하다고 출력 후
-            return;                         //건설하지 않고 리턴
-        }
-
-        PlayerStats.Money -= turretToBuild.cost; //터렛을 지었으므로 머니를 비용만큼 감소
-
-        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turret; //node의 turret을 turret으로 설정
-
-        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
-        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
-
-        Debug.Log("Turret Build! Money Left : " + PlayerStats.Money); 
-    }
     public void SelectNode(Node node)
     {
         if (selectNode == node)
@@ -68,5 +50,10 @@ public class BuildManager : MonoBehaviour
         turretToBuild = turret; //건설하기위해 선택한 터렛을 turretToBuild에 넣어준다.
 
         DeselectNode();
+    }
+
+    public TurretBlueprint GetTurretToBuild ()
+    {
+        return turretToBuild;
     }
 }

@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,8 +9,12 @@ public class Node : MonoBehaviour
     public Color notEnoughMoneyColor; //비용 부족 노드색
     public Vector3 positionOffset;
 
-    [Header("Optional")] //이렇게 Optional을 해놓으면 나중에 봤을때 None으로 되어있어도 놀라지 않음
-    public GameObject turret; //public으로 해서 BuildManager에서 나중에 터렛을 설정할 수 있도록 함
+    [HideInInspector] //인스펙터에서 숨김
+    public GameObject turret;
+    [HideInInspector] 
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     private Renderer rend;
     private Color startColor;
@@ -28,6 +34,52 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
+    void BuildTurret(TurretBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost) //플레이어의 돈이 turret의 cost보다 적다면
+        {
+            Debug.Log("Not Enough Money to build that!"); //돈이 부족하다고 출력 후
+            return;                         //건설하지 않고 리턴
+        }
+
+        turretBlueprint = blueprint; //노드의 turretBlueprint에 선택한 blueprint를 넣어준다.
+
+        PlayerStats.Money -= blueprint.cost; //터렛을 지었으므로 머니를 비용만큼 감소
+
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret; //node의 turret을 turret으로 설정
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
+        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
+
+        Debug.Log("Turret Build!");
+    }
+
+    public void UpgradeTurret()
+    {
+        if (PlayerStats.Money < turretBlueprint.upgradeCost) //플레이어의 돈이 turret의 cost보다 적다면
+        {
+            Debug.Log("Not Enough Money to upgrade that!"); //돈이 부족하다고 출력 후
+            return;                         //건설하지 않고 리턴
+        }
+
+        PlayerStats.Money -= turretBlueprint.upgradeCost; //터렛을 지었으므로 머니를 비용만큼 감소
+
+        //Get rid of the old turret
+        Destroy(turret);//기존의 포탑을 파괴
+
+        //Build a upgraded turret
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret; //node의 turret을 turret으로 설정
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
+        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
+
+        isUpgraded = true; //업그레이드 했다고 수정
+
+        Debug.Log("Turret Upgrade!");
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -42,7 +94,7 @@ public class Node : MonoBehaviour
         if (!buildManager.CanBuild) //건설할 터렛이 null이 아니면 True 리턴됨 (BuildManager 참고)
             return;
 
-        buildManager.BuildTurretOn(this); //이(this) 노드에 Turret을 건설
+        BuildTurret(buildManager.GetTurretToBuild()); //이(this) 노드에 Turret을 건설
 }
 
     private void OnMouseEnter() //마우스가 오브젝트 충돌체에 지나가거나 들어갈 때
