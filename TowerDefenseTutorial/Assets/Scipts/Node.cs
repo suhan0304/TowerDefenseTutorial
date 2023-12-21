@@ -48,6 +48,11 @@ public class Node : MonoBehaviour
         Debug.Log("Turret Build!");
     }
 
+    public void upgrade()
+    {
+
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
