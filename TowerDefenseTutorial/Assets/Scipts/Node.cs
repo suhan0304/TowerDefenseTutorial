@@ -53,7 +53,7 @@ public class Node : MonoBehaviour
         Debug.Log("Turret Build!");
     }
 
-    public void upgrade()
+    public void UpgradeTurret()
     {
         if (PlayerStats.Money < turretBlueprint.upgradeCost) //플레이어의 돈이 turret의 cost보다 적다면
         {
@@ -66,6 +66,7 @@ public class Node : MonoBehaviour
         //Get rid of the old turret
         Destroy(turret);//기존의 포탑을 파괴
 
+        //Build a upgraded turret
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret; //node의 turret을 turret으로 설정
 

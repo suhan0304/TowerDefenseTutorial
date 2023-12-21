@@ -21,4 +21,10 @@ public class NodeUI : MonoBehaviour
     {
         ui.SetActive(false); //NodeUI 오브젝트를 비활성화
     }
+
+    public void Upgrade()
+    {
+        target.UpgradeTurret();
+        BuildManager.instance.DeselectNode();//업그레이드 하면 노드 선택 해제
+    }
 }
