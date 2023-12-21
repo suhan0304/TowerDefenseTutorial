@@ -33,7 +33,7 @@ public class Node : MonoBehaviour
     {
         if (PlayerStats.Money < blueprint.cost) //플레이어의 돈이 turret의 cost보다 적다면
         {
-            Debug.Log("Not Enough Money!"); //돈이 부족하다고 출력 후
+            Debug.Log("Not Enough Money to build that!"); //돈이 부족하다고 출력 후
             return;                         //건설하지 않고 리턴
         }
 
@@ -50,8 +50,23 @@ public class Node : MonoBehaviour
 
     public void upgrade()
     {
+        if (PlayerStats.Money < blueprint.upgradeCost) //플레이어의 돈이 turret의 cost보다 적다면
+        {
+            Debug.Log("Not Enough Money to upgrade that!"); //돈이 부족하다고 출력 후
+            return;                         //건설하지 않고 리턴
+        }
 
+        PlayerStats.Money -= blueprint.upgradeCost; //터렛을 지었으므로 머니를 비용만큼 감소
+
+        GameObject _turret = (GameObject)Instantiate(blueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        turret = _turret; //node의 turret을 turret으로 설정
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
+        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
+
+        Debug.Log("Turret Build!");
     }
+}
 
     private void OnMouseDown()
     {
