@@ -82,7 +82,7 @@ public class Node : MonoBehaviour
 
     public void SellTurret()
     {
-        PlayerStats.Money += SellCost;
+        PlayerStats.Money += turretBlueprint.cost * .5f;//판매 가격의 절반을 반환
     }
 
     private void OnMouseDown()
