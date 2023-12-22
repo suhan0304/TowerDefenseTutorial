@@ -41,4 +41,10 @@ public class NodeUI : MonoBehaviour
         target.UpgradeTurret();
         BuildManager.instance.DeselectNode();//업그레이드 하면 노드 선택 해제
     }
+
+    public void Sell()
+    {
+        target.SellTurret();
+        BuildManager.instance.DeselectNode();//업그레이드 하면 노드 선택 해제
+    }
 }
