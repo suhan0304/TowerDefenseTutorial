@@ -17,7 +17,9 @@ public class BuildManager : MonoBehaviour
         //빌드 매니저는 하나의 인스턴스로만 유지됨 (싱글톤 패턴의 특징 : 하나의 인스턴스만 유지)
         instance = this;
     }
+
     public GameObject buildEffect; //건설 이펙트
+    public GameObject sellEffect; //판매 이펙트
 
     private TurretBlueprint turretToBuild; //노드 선택 시 건설할 터렛\
     private Node selectNode; // 선택한 노드

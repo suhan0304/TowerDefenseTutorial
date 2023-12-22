@@ -10,6 +10,8 @@ public class NodeUI : MonoBehaviour
     public Text upgradeCost;
     public Button upgradeButton;
 
+    public Text sellAmount;
+
     private Node target;
 
     public void SetTarget(Node _target)
@@ -27,6 +29,8 @@ public class NodeUI : MonoBehaviour
             upgradeCost.text = "Done";
             upgradeButton.interactable = false; //버튼 클릭 비활성화
         }
+
+        sellAmount.text = "$" + target.turretBlueprint.GetSellAmount();
                    
         ui.SetActive(true); //NodeUI 오브젝트를 활성화
     }
