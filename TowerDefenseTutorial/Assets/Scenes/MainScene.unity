@@ -1932,6 +1932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildEffect: {fileID: 6301876659330832265, guid: c532d4dd74bf9d84391b28f999aae5a5, type: 3}
+  sellEffect: {fileID: 3277053265347770215, guid: b9392b23782eade4fada1632db35d0e1, type: 3}
   nodeUI: {fileID: 1940446112}
 --- !u!114 &221566679
 MonoBehaviour:
@@ -2587,12 +2588,12 @@ MonoBehaviour:
   MissileLauncher:
     prefab: {fileID: 1103602849747682149, guid: 3175728b87250154cb406ef6456683c8, type: 3}
     cost: 250
-    upgradedPrefab: {fileID: 1103602849747682149, guid: 3175728b87250154cb406ef6456683c8, type: 3}
+    upgradedPrefab: {fileID: 1103602849747682149, guid: 6d927ea7d01574b49b6895edd6dc78ce, type: 3}
     upgradeCost: 150
   LaserBeamer:
     prefab: {fileID: 7815840761427884519, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
     cost: 350
-    upgradedPrefab: {fileID: 7815840761427884519, guid: 7db2ec97f39c7ee4190ac7234042d7e8, type: 3}
+    upgradedPrefab: {fileID: 7815840761427884519, guid: d815d677bc910504283f7cc8f153d502, type: 3}
     upgradeCost: 250
 --- !u!1001 &281503026
 PrefabInstance:
@@ -4547,7 +4548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1940446112}
         m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-        m_MethodName: Upgrade
+        m_MethodName: Sell
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17982,6 +17983,7 @@ MonoBehaviour:
   ui: {fileID: 1940446110}
   upgradeCost: {fileID: 594565088}
   upgradeButton: {fileID: 1749293666}
+  sellAmount: {fileID: 1371130428}
 --- !u!1001 &1942420559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19570,8 +19572,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
-  - {fileID: 1940446111}
   - {fileID: 221566677}
+  - {fileID: 1940446111}
   - {fileID: 705507995}
   - {fileID: 1090714701}
   - {fileID: 2011533083}

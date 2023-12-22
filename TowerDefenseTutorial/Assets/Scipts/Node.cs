@@ -80,6 +80,17 @@ public class Node : MonoBehaviour
         Debug.Log("Turret Upgrade!");
     }
 
+    public void SellTurret()
+    {
+        PlayerStats.Money += turretBlueprint.GetSellAmount();//판매 가격의 절반을 반환
+
+        GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity); // 이펙트 복사해서 생성해주기
+        Destroy(effect, 5f); // 생성하고 5초후에 이펙트 오브젝트 삭제
+
+        Destroy(turret);
+        turretBlueprint = null;
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
