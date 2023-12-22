@@ -10,4 +10,9 @@ public class TurretBlueprint
 
     public GameObject upgradedPrefab; //업그레이드 터렛 프리팹
     public int upgradeCost; //업그레이드 비용
+
+    public int GetSellAmount()
+    {
+        return cost / 2;
+    }
 }
