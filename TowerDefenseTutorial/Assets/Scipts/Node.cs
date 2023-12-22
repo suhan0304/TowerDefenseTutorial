@@ -80,6 +80,11 @@ public class Node : MonoBehaviour
         Debug.Log("Turret Upgrade!");
     }
 
+    public void SellTurret()
+    {
+        PlayerStats.Money += SellCost;
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
