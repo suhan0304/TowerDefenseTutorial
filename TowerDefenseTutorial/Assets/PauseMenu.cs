@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,17 +6,18 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("Paused");
             Toggle();
         }
     }
 
     public void Toggle()
     {
-        ui.SetActive(ui.activeSelf); //활성화 되어있으면 비활성화, 비활성화 되어있으면 활성화
+        ui.SetActive(!ui.activeSelf); //활성화 되어있으면 비활성화, 비활성화 되어있으면 활성화
 
         if (ui.activeSelf) //Pasued Menu 활성화
         {
