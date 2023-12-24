@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Menu()
     {
+        Toggle();
         Debug.Log("Go to Menu"); //메뉴로 돌아가기
         SceneManager.LoadScene(MainMenu.MenuToLoad); //MainMenu 이름의 씬을 로드
     }
