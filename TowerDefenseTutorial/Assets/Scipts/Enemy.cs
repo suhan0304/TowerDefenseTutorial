@@ -26,8 +26,6 @@ public class Enemy : MonoBehaviour
     {
         health -= amount; //amount 만큼 체력 감소
 
-        healthBar.fillAmount = health / 100f; //체력바를 업데이트 [체력 100% = 1.00, 체력 1% = 0.01]
-
         if(health <= 0)
         {
             Die(); // 에너미 사망 메서드

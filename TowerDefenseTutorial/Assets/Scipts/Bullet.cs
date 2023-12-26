@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
         {
             Damage(target);//목표 오브젝트에만 Damage 함수
         }
-        Destroy(gameObject);        //충돌 시 총알은 바로 파괴
+        Destroy(gameObject);  //충돌 시 총알은 바로 파괴
     }
 
     void Explode() //총알 폭발 - 범위 공격

@@ -200,6 +200,7 @@ MonoBehaviour:
   health: 100
   worth: 50
   deathEffect: {fileID: 5148071340726446966, guid: 90bc1f4ed46787e409bf0f97fe77dd34, type: 3}
+  healthBar: {fileID: 4300669144838010088}
 --- !u!114 &-397912598100208743
 MonoBehaviour:
   m_ObjectHideFlags: 0
