@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -7,14 +8,19 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float speed; //속도
 
-    public float health = 100; //몬스터 초기 체력
+    public float startHealth = 100; //몬스터 초기 체력
+    public float health;
 
     public int worth = 50; //몬스터를 죽일 시 플레이어에게 주어질 돈
 
     public GameObject deathEffect;
 
+    [Header("Unity Stuff")]
+    public Image healthBar;
+
     private void Start()
     {
+        health = startHealth;
         speed = startSpeed;
     }
 
@@ -22,7 +28,9 @@ public class Enemy : MonoBehaviour
     {
         health -= amount; //amount 만큼 체력 감소
 
-        if(health <= 0)
+        healthBar.fillAmount = health / startHealth; //체력바를 퍼센트로 업데이트 [체력 100% = 1.00, 체력 1% = 0.01]
+
+        if (health <= 0)
         {
             Die(); // 에너미 사망 메서드
         }
