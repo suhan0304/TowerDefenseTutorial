@@ -13,7 +13,7 @@ public class SceneFader : MonoBehaviour
     {
         StartCoroutine(FadeIn());
     }
-    IEnumerator FadeIn ()
+    IEnumerator FadeIn()
     {
         float t = 1f;
 
@@ -23,6 +23,18 @@ public class SceneFader : MonoBehaviour
             float a = curve.Evaluate(t);
             img.color = new Color(0f, 0f, 0f, a); //투명도를 a로 설정 (투명도가 animationCurve를 따라 감소)
             yield return 0; //다음 프레임으로 넘어감
+        }
+    }
+    IEnumerator FadeOut() //FadeIn 반대로 설정
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t -= Time.deltaTime;
+            float a = curve.Evaluate(t);
+            img.color = new Color(0f, 0f, 0f, a); 
+            yield return 0; 
         }
     }
 }
