@@ -8,6 +8,8 @@ public class GameOver : MonoBehaviour
 {
     public Text roundsText;
 
+    public string menuSceneName = "MainMenu";
+    public SceneFader sceneFader;
     void OnEnable() //게임 오버 UI가 Active 시 실행
     {
         roundsText.text = PlayerStats.Rounds.ToString(); //라운드 설정
@@ -15,12 +17,11 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        //이름 또는 인덱스로 로드 씬 가능
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //현재 로드 중인 MainScene을 그대로 다시 불러옴
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name); //현재 실행중인 Scene을 재로드
     }
 
     public void Menu()
     {
-        Debug.Log("Go to menu."); // Menu ui 구현 후 연결
+        sceneFader.FadeTo(menuSceneName);
     }
 }
