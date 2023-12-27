@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
 
+    public string menuSceneName = "MainMenu";
+    public SceneFader sceneFader;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
@@ -32,13 +34,12 @@ public class PauseMenu : MonoBehaviour
     public void Retry()
     {
         Toggle();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//현재 활성화 된 Scene을 다시 로드
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name); //현재 실행중인 Scene을 재로드
     }
 
     public void Menu()
     {
         Toggle();
-        Debug.Log("Go to Menu"); //메뉴로 돌아가기
-        SceneManager.LoadScene(MainMenu.MenuToLoad); //MainMenu 이름의 씬을 로드
+        sceneFader.FadeTo(menuSceneName);
     }
 }

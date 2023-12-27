@@ -8,9 +8,11 @@ public class MainMenu : MonoBehaviour
     public static string MenuToLoad = "MainMenu";
     public static string levelToLoad = "MainLevel";
 
+    public SceneFader sceneFader;
+
     public void Play()
     {
-        SceneManager.LoadScene(levelToLoad); //MainLevel 이름의 씬을 로드
+        sceneFader.FadeTo(levelToLoad);
     }
 
     public void Quit()
