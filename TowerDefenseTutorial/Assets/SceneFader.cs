@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class SceneFader : MonoBehaviour
 {
     public Image img;
     public AnimationCurve curve;
 
-    private void Start()
+    private void Start() //시작 시에 자동으로 FadeIn 효과 한번 실행
     {
         StartCoroutine(FadeIn());
+    }
+
+    public void FadeTo(string scene) //특정 씬으로 넘어가는 함수
+    {
+        StartCoroutine(FadeOut(scene));
+
     }
     IEnumerator FadeIn()
     {
@@ -25,7 +32,7 @@ public class SceneFader : MonoBehaviour
             yield return 0; //다음 프레임으로 넘어감
         }
     }
-    IEnumerator FadeOut() //FadeIn 반대로 설정
+    IEnumerator FadeOut(string scene) //FadeIn 반대로 설정
     {
         float t = 0f;
 
@@ -34,7 +41,9 @@ public class SceneFader : MonoBehaviour
             t -= Time.deltaTime;
             float a = curve.Evaluate(t);
             img.color = new Color(0f, 0f, 0f, a); 
-            yield return 0; 
+            yield return 0;
         }
+
+        SceneManager.LoadScene(scene);
     }
 }
