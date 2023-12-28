@@ -46,20 +46,23 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave() //코루틴
     {
-        waveIndex++;//웨이브가 올때마다 레벨업
         PlayerStats.Rounds++;
 
-        for (int i = 0; i < waveIndex; i++)  //웨이브 레벨만큼 몬스터 소한
+        Wave wave = waves[waveIndex];
+
+        for (int i = 0; i < wave.count; i++)  //웨이브 레벨만큼 몬스터 소한
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
+
+        waveIndex++;//웨이브가 올때마다 레벨업
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
         //미리 지정해둔 스폰 포인트에서 몬스터를 복사해서 소환
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
     }
 }
