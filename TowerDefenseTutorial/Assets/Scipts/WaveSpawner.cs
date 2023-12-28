@@ -20,6 +20,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (EnemiesAlive >0)
+        {
+            return;
+        }
+
         if (countdown <= 0f) //카운트다운이 0 보다 작아지먄 Spawn Wave 실행
         {
         
