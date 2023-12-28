@@ -46,6 +46,8 @@ public class Enemy : MonoBehaviour
         GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
 
+        WaveSpawner.EnemiesAlive--; //몬스터 개체 수 감소
+
         Destroy(gameObject);
     }
 }
