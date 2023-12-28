@@ -52,7 +52,8 @@ public class EnemyMovement : MonoBehaviour
 
     void EndPath() //경로의 끝(목표)에 도달
     {
-        Destroy(gameObject); //도착지점 도착 시 오브젝트 파괴
         PlayerStats.Lives--; // lives를 1 감소
+        WaveSpawner.EnemiesAlive--;
+        Destroy(gameObject); //도착지점 도착 시 오브젝트 파괴
     }
 }

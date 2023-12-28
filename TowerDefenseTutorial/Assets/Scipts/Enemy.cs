@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed; //속도
 
     public float startHealth = 100; //몬스터 초기 체력
-    public float health;
+    private float health;
 
     public int worth = 50; //몬스터를 죽일 시 플레이어에게 주어질 돈
 
@@ -45,6 +45,8 @@ public class Enemy : MonoBehaviour
 
         GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
+
+        WaveSpawner.EnemiesAlive--; //몬스터 개체 수 감소
 
         Destroy(gameObject);
     }
