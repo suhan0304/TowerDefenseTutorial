@@ -19,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0; // 웨이브 번호
 
     private void Update()
-    {
+    { 
         if (EnemiesAlive >0)
         {
             return;
@@ -27,9 +27,9 @@ public class WaveSpawner : MonoBehaviour
 
         if (countdown <= 0f) //카운트다운이 0 보다 작아지먄 Spawn Wave 실행
         {
-        
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves; //카운트 다운을 중간 시간으로 초기화
+            return;
         }
 
         //deltaTime//마지막 프레임을 그린 후 경과한 시간
