@@ -7,6 +7,7 @@ public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
+    [SerializeField]
     public Wave[] waves;
 
     public Transform enemyPrefab;
