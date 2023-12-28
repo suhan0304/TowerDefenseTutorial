@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static int EnemiesAlive = 0;
+
     public Transform enemyPrefab;
 
     public Transform spawnPoint; //몬스터 스폰 위치
