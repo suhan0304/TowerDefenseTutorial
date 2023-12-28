@@ -53,5 +53,6 @@ public class WaveSpawner : MonoBehaviour
     {
         //미리 지정해둔 스폰 포인트에서 몬스터를 복사해서 소환
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++;
     }
 }
