@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44933343, g: 0.499408, b: 0.5757057, a: 1}
+  m_IndirectSpecularColor: {r: 0.4485135, g: 0.4985603, b: 0.57565004, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e90a23b20fb541b479cf09b01c2e9d11, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 56bf7cf819f88a6488ae7fefd01680b9, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -261,8 +261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -56.115128}
-  m_SizeDelta: {x: -249.06, y: -162.1836}
+  m_AnchoredPosition: {x: -7.0025, y: -71}
+  m_SizeDelta: {x: -702.19, y: -359.0401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39806279
 MonoBehaviour:
@@ -443,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &253911235
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 8, y: 8}
+  m_Spacing: {x: 7.5, y: 7.5}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &253911236
@@ -535,6 +535,10 @@ PrefabInstance:
     - target: {fileID: 7543121407286889681, guid: d8cd7e703457d084cad0453d7426a1f0, type: 3}
       propertyPath: m_Name
       value: Scene Fader
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387465171455717010, guid: d8cd7e703457d084cad0453d7426a1f0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -680,8 +684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.0007, y: 127.34784}
-  m_SizeDelta: {x: 774.9384, y: 97.11}
+  m_AnchoredPosition: {x: 0.000044823, y: 239.76}
+  m_SizeDelta: {x: 1203.8049, y: 181.4773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761732741
 MonoBehaviour:
@@ -705,11 +709,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ab8915beec85c064799d67e10a2d7eba, type: 3}
-    m_FontSize: 60
+    m_FontSize: 114
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 104
+    m_MinSize: 1
+    m_MaxSize: 133
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
