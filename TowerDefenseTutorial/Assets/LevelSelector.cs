@@ -9,6 +9,8 @@ public class LevelSelector : MonoBehaviour
 
     public void Start()
     {
+        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+
         for (int i = 0; i < levelButtons.Length; i++)
         {
             levelButtons[i].interactable = false; //시작하면 일단 모든 버튼은 상호작용 불가 (클릭안됨)
