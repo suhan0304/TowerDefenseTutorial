@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    public string nextLevel = "Level02";
+    public int levelToUnrock = 2;
+
+    public SceneFader sceneFader;
+
     private void Start()
     {
         GameIsOver = false; //게임 시작 시에 게임 오버를 False로 설정
@@ -34,5 +39,12 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         gameOverUI.SetActive(true); //게임 오버 UI 활성화
+    }
+
+    public void WinLevel()
+    {
+        Debug.Log("LEVEL WON!");
+        PlayerPrefs.SetInt("levelReached", levelToUnrock);
+        sceneFader.FadeTo(nextLevel);
     }
 }
