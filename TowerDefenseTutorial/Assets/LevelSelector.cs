@@ -13,7 +13,7 @@ public class LevelSelector : MonoBehaviour
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if ( i < levelReached )
+            if ( i + 1 < levelReached )
                 levelButtons[i].interactable = false; //시작하면 일단 모든 버튼은 상호작용 불가 (클릭안됨)
         }
     }
