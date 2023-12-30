@@ -19,6 +19,8 @@ public class WaveSpawner : MonoBehaviour
     
     public Text waveCountdownText;
 
+    public GameManager gameManager;
+
     private int waveIndex = 0; // 웨이브 번호
 
     private void Update()
@@ -51,6 +53,8 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        EnemiesAlive = wave.count;
+
         for (int i = 0; i < wave.count; i++)  //웨이브 레벨만큼 몬스터 소한
         {
             SpawnEnemy(wave.enemy);
@@ -61,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex == waves.Length)
         {
-            Debug.Log("LEVEL WON!");
+            gameManager.WinLevel(); //레벨 클리어 
             this.enabled = false; //WaveSpawner 스크립트를 비활성화
         }
     }
@@ -70,6 +74,5 @@ public class WaveSpawner : MonoBehaviour
     {
         //미리 지정해둔 스폰 포인트에서 몬스터를 복사해서 소환
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
     }
 }
