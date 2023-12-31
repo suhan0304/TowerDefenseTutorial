@@ -2197,9 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 142867719}
-  nextLevel: Level02
-  levelToUnrock: 2
-  sceneFader: {fileID: 6663670207004887811}
+  completeLevelUI: {fileID: 0}
 --- !u!114 &221566681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9701,6 +9699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989500533}
   - component: {fileID: 989500535}
+  - component: {fileID: 989500536}
   m_Layer: 5
   m_Name: CompleteLevel
   m_TagString: Untagged
@@ -9753,6 +9752,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &989500536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989500532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc020b09716f2b4c951f151add78fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: MainMenu
+  sceneFader: {fileID: 6663670207004887811}
+  nextLevel: Level02
+  levelToUnrock: 2
 --- !u!1001 &993278835
 PrefabInstance:
   m_ObjectHideFlags: 0
