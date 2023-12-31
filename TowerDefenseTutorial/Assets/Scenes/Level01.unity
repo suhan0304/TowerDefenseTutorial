@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 142867719}
-  completeLevelUI: {fileID: 0}
+  completeLevelUI: {fileID: 989500532}
 --- !u!114 &221566681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9706,7 +9706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &989500533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9765,9 +9765,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuSceneName: MainMenu
-  sceneFader: {fileID: 6663670207004887811}
   nextLevel: Level02
   levelToUnrock: 2
+  sceneFader: {fileID: 6663670207004887811}
 --- !u!1001 &993278835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15341,9 +15341,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: Retry
+      - m_Target: {fileID: 989500536}
+        m_TargetAssemblyTypeName: CompleteLevel, Assembly-CSharp
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19911,8 +19911,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+      - m_Target: {fileID: 989500536}
+        m_TargetAssemblyTypeName: CompleteLevel, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
