@@ -6,14 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text roundsText;
 
     public string menuSceneName = "MainMenu";
     public SceneFader sceneFader;
-    void OnEnable() //게임 오버 UI가 Active 시 실행
-    {
-        roundsText.text = PlayerStats.Rounds.ToString(); //라운드 설정
-    }
 
     public void Retry()
     {
