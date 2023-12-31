@@ -30,6 +30,12 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
+        if (waveIndex == waves.Length)
+        {
+            gameManager.WinLevel(); //레벨 클리어 
+            this.enabled = false; //WaveSpawner 스크립트를 비활성화
+        }
+
         if (countdown <= 0f) //카운트다운이 0 보다 작아지먄 Spawn Wave 실행
         {
             StartCoroutine(SpawnWave());
@@ -62,12 +68,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;//웨이브가 올때마다 레벨업
-
-        if (waveIndex == waves.Length)
-        {
-            gameManager.WinLevel(); //레벨 클리어 
-            this.enabled = false; //WaveSpawner 스크립트를 비활성화
-        }
     }
 
     void SpawnEnemy(GameObject enemy)

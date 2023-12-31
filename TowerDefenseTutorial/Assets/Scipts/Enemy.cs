@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     [Header("Unity Stuff")]
     public Image healthBar;
 
+    private bool isDead = false;
+
     private void Start()
     {
         health = startHealth;
@@ -30,7 +32,7 @@ public class Enemy : MonoBehaviour
 
         healthBar.fillAmount = health / startHealth; //체력바를 퍼센트로 업데이트 [체력 100% = 1.00, 체력 1% = 0.01]
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die(); // 에너미 사망 메서드
         }
@@ -41,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+
         PlayerStats.Money += worth; //플레이어에게 돈 지급
 
         GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
