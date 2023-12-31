@@ -1539,7 +1539,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3622224a85e5fe4898a7bf5591fbf21, type: 3}
+    m_Font: {fileID: 12800000, guid: 67d5f1e476541eb41b82174d1c61eb11, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -1551,7 +1551,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: LEVEL WON!
 --- !u!222 &183830504
 CanvasRenderer:
   m_ObjectHideFlags: 0
