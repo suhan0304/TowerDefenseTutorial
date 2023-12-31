@@ -18,6 +18,7 @@ public class CompleteLevel : MonoBehaviour
 
     public void Menu()
     {
+        PlayerPrefs.SetInt("levelReached", levelToUnrock);
         sceneFader.FadeTo(menuSceneName);
     }
 }
