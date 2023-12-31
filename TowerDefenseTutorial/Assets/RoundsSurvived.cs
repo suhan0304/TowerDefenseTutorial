@@ -9,6 +9,23 @@ public class RoundsSurvived : MonoBehaviour
 
     void OnEnable() //게임 오버 UI가 Active 시 실행
     {
-        roundsText.text = PlayerStats.Rounds.ToString(); //라운드 설정
+        StartCoroutine(AnimeText());
+    }
+
+    IEnumerator AnimeText()
+    {
+        roundsText.text = "0";
+        int round = 0;
+
+        yield return new WaitForSeconds(.7f);
+
+        while (round < 3)
+        {
+            round++;
+            roundsText.text = round.ToString();
+
+            yield return new WaitForSeconds(.05f);
+        }
+
     }
 }
