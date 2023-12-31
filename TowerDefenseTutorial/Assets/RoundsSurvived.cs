@@ -15,11 +15,11 @@ public class RoundsSurvived : MonoBehaviour
     IEnumerator AnimeText()
     {
         roundsText.text = "0";
-        int round = 0;
+        int round = 0; 
 
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(.7f); //Fade 효과 대기시간
 
-        while (round < 3)
+        while (round < PlayerStats.Rounds)
         {
             round++;
             roundsText.text = round.ToString();
