@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 183830502}
   - component: {fileID: 183830501}
   m_Layer: 5
-  m_Name: GameOverText
+  m_Name: LevelWonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9687,10 +9687,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989500533}
-  - component: {fileID: 989500534}
   - component: {fileID: 989500535}
   m_Layer: 5
-  m_Name: GameOver (1)
+  m_Name: CompleteLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9720,21 +9719,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &989500534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989500532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5472c3c4c9037479183a9846323d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roundsText: {fileID: 177426142}
-  menuSceneName: MainMenu
-  sceneFader: {fileID: 6663670207004887811}
 --- !u!95 &989500535
 Animator:
   serializedVersion: 5
@@ -15285,7 +15269,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 989500534}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
@@ -19885,7 +19869,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 989500534}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
