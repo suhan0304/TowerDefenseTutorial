@@ -1,4 +1,4 @@
-![TDG](https://github.com/suhan0304/TowerDefenseTutorial/assets/102403989/4d944867-dae8-4ec6-8bff-0f4c23549fed)# TowerDefenseGame
+# TowerDefenseGame
 ![TDG](https://github.com/suhan0304/TowerDefenseTutorial/assets/102403989/83ee5dc9-2749-4cf4-97e9-ff823761ab32)
 
 ---
